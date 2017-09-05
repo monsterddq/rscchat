@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Firechat - open source chat built on Firebase</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Firebase Firechat Documentation">
+    <meta name="author" content="Rob DiMarco, Engineer @ Firebase, rob@firebase.com">
+    <meta name="description" content="Open source, real-time chat built on Firebase." />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+
+    <!-- Firechat -->
+    <link rel="stylesheet" href="css/firechat.min.css" />
+
+    <link rel="stylesheet" href="css/pygments-borland.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="images/favicon.ico" rel="shortcut icon" />
+</head>
+
+<body class="home-page">
+
+    <header id="top-content">
+        <div class="header-title">
+            <div id="top-shadow"></div>
+            <div class="container text-center">
+                <div class="header-links" class="text-right">
+                    <a href="#" class="selected">Home</a>
+                    <a href="docs/">Documentation</a>
+                    <a href="#">Register</a>
+                </div>
+                <div id="home-title"><span class="strong">Fire</span><span class="satisfy">chat</span></div>
+                <div id="home-subtitle">Open-source real-time chat, built on Firebase</div>
+            </div>
+        </div>
+
+        <div class="header-content">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="span6 offset3">
+                        <div id="firechat-container" class="clearfix"></div>
+                        <div id="user-info">
+                            Logged in as <span id="user-name">.</span>
+                            <a href="javascript:logout();">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+
+    </div>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <div id="footer-links">
+                <a href="docs/">Docs</a>
+                <a href="https://github.com/firebase/firechat" target="_blank">GitHub Project</a>
+                <a href="https://github.com/firebase/firechat/issues" target="_blank">Issues</a>
+                <a href="mailto:firechat@firebase.com?subject=[Firechat Question]" target="_blank">Contact</a>
+            </div>
+            <a id="powered-by-firebase" href="https://firebase.google.com/?utm_source=firechat" target="_blank">
+                <img src="images/powered-by-firebase.png" />
+            </a>
+        </div>
+    </footer>
+
+    <div id="auth-modal" class="modal hide fade" tabindex="-1" role="dialog">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h4 id="myModalLabel">Authenticate to continue</h4>
+        </div>
+        <div class="modal-body text-center">
+            <p>
+                <a id="twitter-signin" href="javascript:login();">
+                    <img id="twitter-signin-btn" src="images/sign-in-with-twitter.png">
+                </a>
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal">Cancel</button>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="js/firebase.js"></script>
+
+    <!-- Firechat -->
+    <script src="js/firechat.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/bootstrap-modal.min.js"></script>
+  <script src="js/bootstrap-modalmanager.min.js"></script>-->
+
+    <script>
+        // Initialize Firebase SDK
+        var config = {
+            apiKey: "AIzaSyD0xwlGSwHfakihGM9etQlMIDr0KYlQl74",
+            authDomain: "rscch-5519e.firebaseapp.com",
+            databaseURL: "https://rscch-5519e.firebaseio.com",
+            projectId: "rscch-5519e",
+            storageBucket: "rscch-5519e.appspot.com",
+            messagingSenderId: "398902148928"
+        };
+        firebase.initializeApp(config);
+
+        // Get a reference to the Firebase Realtime Database
+        var chatRef = firebase.database().ref(),
+            target = document.getElementById("firechat-container"),
+            authModal = $('#auth-modal').modal({
+                show: false
+            }),
+            chat = new FirechatUI(chatRef, target);
+
+        chat.on('auth-required', function() {
+            //console.log('show modal');
+            //console.log(authModal);
+            $('#auth-modal').modal('show');
+            //console.log(authModal);
+            return false;
+        });
+
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                var userId = user.uid,
+                    username = user.displayName;
+                if (!username)
+                    username = user.email;
+                console.log([user, userId, username]);
+                chat.setUser(userId, username);
+                $('#user-name').text(username);
+                $('#user-info').show();
+                setTimeout(function() {
+                    chat._chat.enterRoom('-Iy1N3xs4kN8iALHV0QA')
+                }, 500);
+            } else {
+                $('#user-info').hide();
+                chat._chat.enterRoom('-Iy1N3xs4kN8iALHV0QA')
+            }
+        });
+
+        function login() {
+            authModal.modal('hide');
+            user = "admin@mail.com";
+            pass = "admin123!@#";
+            // Log the user in via Twitter
+            /*var provider = new firebase.auth.TwitterAuthProvider();
+            firebase.auth().signInWithPopup(provider).catch(function(error) {
+              console.log("Error authenticating user:", error);
+            });*/
+            //Register and login
+            /*firebase.auth().createUserWithEmailAndPassword(user, pass).catch(function(error) {
+                console.log("Error authenticating user:", error);
+            });*/
+            //Login
+            firebase.auth().signInWithEmailAndPassword(user, pass).catch(function(error) {
+                console.log("Error authenticating user:", error);
+            });
+        }
+
+        function logout() {
+            firebase.auth().signOut().then(function() {
+                location.reload();
+            }).catch(function(error) {
+                console.log("Error signing user out:", error);
+            });
+        }
+    </script>
+
+    <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-37102688-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</body>
+
+</html>
