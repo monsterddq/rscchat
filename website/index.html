@@ -10,160 +10,216 @@
     <meta name="description" content="Open source, real-time chat built on Firebase." />
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
 
     <!-- Firechat -->
     <link rel="stylesheet" href="css/firechat.min.css" />
 
     <link rel="stylesheet" href="css/pygments-borland.css" />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/style1.css" />
     <link href="images/favicon.ico" rel="shortcut icon" />
 </head>
 
-<body class="home-page">
-
-    <header id="top-content">
-        <div class="header-title">
-            <div id="top-shadow"></div>
-            <div class="container text-center">
-                <div class="header-links" class="text-right">
-                    <a href="#" class="selected">Home</a>
-                    <a href="docs/">Documentation</a>
-                    <a href="#">Register</a>
+<body>
+    <a href="#" onclick="logout()">Logout</a>
+    <section class="login" style="display:block">
+      <div class="container login-form">
+            <div class="card card-container">
+                <h1 style="color: red">E - Talk</h1>
+                <p id="profile-name" class="profile-name-card"></p>
+                <form class="form-signin">
+                    <span id="reauth-email" class="reauth-email"></span>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Tên đăng nhập" required autofocus>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Mật khẩu" required>
+                    <a href="#" class="forgot-password show" onclick="logout()">
+                        <p>
+                          Quên mật khẩu?
+                        </p>
+                    </a>
+                    <button class="btn btn-primary submit-login" >Đăng nhập</button>
+                    <button class="btn btn-primary pull-right btn-register" type="button">Đăng ký</button>
+                </form>
+            </div>
+      </div>
+      <div class="container register-form">
+            <div class="card card-container">
+                <h5 class="pagination-centered"><strong>Đăng ký tài khoản</strong></h5>
+                <p id="profile-name" class="profile-name-card"></p>
+                <form class="form-signin">
+                    <span id="reauth-email" class="reauth-email"></span>
+                    <input type="email" id="inputName-register" class="form-control" placeholder="Họ và tên" required autofocus>
+                    <input type="email" id="inputEmail-register" class="form-control" placeholder="Số điện thoại hoặc email" required autofocus>
+                    <input type="password" id="inputPassword-register" class="form-control" placeholder="Mật khẩu" required>
+                    <button class="btn btn-primary btn-login" type="button">Đăng nhập</button>
+                    <button class="btn btn-primary pull-right submit-register" type="button">Đăng ký</button>
+                </form><!-- /form -->
+            </div><!-- /card-container -->
+      </div>
+    </section>
+    <section class="main">
+      <div class="container" >
+            <div class="card card-container" style="padding:0px">
+                <h5 class="text-center"><strong>Chọn hỗ trợ</strong></h5>
+                <div class="text-center">
+                  <a href="#" class="new-room" ref="tech">
+                    <img src="images/customer.png" width="50px" />
+                    <p><strong>Hỗ trợ chung</strong></p>
+                  </a>
                 </div>
-                <div id="home-title"><span class="strong">Fire</span><span class="satisfy">chat</span></div>
-                <div id="home-subtitle">Open-source real-time chat, built on Firebase</div>
-            </div>
-        </div>
-
-        <div class="header-content">
-            <div class="container text-center">
-                <div class="row">
-                    <div class="span6 offset3">
-                        <div id="firechat-container" class="clearfix"></div>
-                        <div id="user-info">
-                            Logged in as <span id="user-name">.</span>
-                            <a href="javascript:logout();">Logout</a>
-                        </div>
-                    </div>
+                <div class="text-center col-xs-6">
+                  <a href="#" class="new-room" ref="gen">
+                    <img src="images/customer.png" width="50px" />
+                    <p><strong>Kỹ thuật</strong></p>
+                  </a>
                 </div>
-            </div>
-    </header>
+                <div class="text-center col-xs-6">
+                  <a href="#" class="new-room" ref="bus">
+                    <img src="images/customer.png" width="50px" />
+                    <p><strong>Mua bán</strong></p>
+                  </a>
+                </div>
+                <div class="clearfix">
+                </div>
+            </div><!-- /card-container -->
+      </div>
+    </section>
+    <section class="room">
+      <header id="top-content">
+          <div class="header-title col-md-12 col-xs-12">
+              <div class="col-md-2 col-xs-2">
+                <img src="images/search.png" width="30px" />
+              </div>
+              <div class="col-md-10 col-xs-10">
+                <input type="text" name="search" class="form-control" placeholder="Tìm kiếm" />
+              </div>
+          </div>
+      </header>
+      <div class="list-room">
+      </div>
+    </section>
+    <section class="chat">
+      <header id="top-content">
+          <div class="header-title col-md-12 col-xs-12">
+              <div class="col-md-2 col-xs-2">
+                <img src="images/search.png" width="30px" />
+              </div>
+              <div class="col-md-10 col-xs-10">
+                <input type="text" name="search" class="form-control" placeholder="Tìm kiếm" />
+              </div>
+          </div>
 
-    </div>
-
-    <footer class="footer">
-        <div class="container text-center">
-            <div id="footer-links">
-                <a href="docs/">Docs</a>
-                <a href="https://github.com/firebase/firechat" target="_blank">GitHub Project</a>
-                <a href="https://github.com/firebase/firechat/issues" target="_blank">Issues</a>
-                <a href="mailto:firechat@firebase.com?subject=[Firechat Question]" target="_blank">Contact</a>
-            </div>
-            <a id="powered-by-firebase" href="https://firebase.google.com/?utm_source=firechat" target="_blank">
-                <img src="images/powered-by-firebase.png" />
-            </a>
-        </div>
-    </footer>
-
-    <div id="auth-modal" class="modal hide fade" tabindex="-1" role="dialog">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
-            <h4 id="myModalLabel">Authenticate to continue</h4>
-        </div>
-        <div class="modal-body text-center">
-            <p>
-                <a id="twitter-signin" href="javascript:login();">
-                    <img id="twitter-signin-btn" src="images/sign-in-with-twitter.png">
-                </a>
-            </p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn" data-dismiss="modal">Cancel</button>
-        </div>
-    </div>
-
-    <!-- jQuery -->
+          <div class="header-content">
+              <div class="container text-center">
+                  <div class="row">
+                      <div class="span6 offset3">
+                          <div id="firechat-container" class="clearfix"></div>
+                          <div id="user-info">
+                              Logged in as <span id="user-name">.</span>
+                              <a href="javascript:logout();">Logout</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+      </header>
+    </section>
     <script src="js/jquery.min.js"></script>
-
-    <!-- Firebase -->
     <script src="js/firebase.js"></script>
-
-    <!-- Firechat -->
     <script src="js/firechat.min.js"></script>
-
-    <!-- Bootstrap -->
     <script src="js/bootstrap.min.js"></script>
     <!--<script src="js/bootstrap-modal.min.js"></script>
   <script src="js/bootstrap-modalmanager.min.js"></script>-->
-
+    <script src="js/login.js"></script>
     <script>
         // Initialize Firebase SDK
+        var admin = `doanquocthai.it@gmail.com`;
+        var adminID = `iXiAqPG94Ef2axT135UtT4cyeRz2`;
+        var adminName = `Quản trị viên`;
         var config = {
-            apiKey: "AIzaSyD0xwlGSwHfakihGM9etQlMIDr0KYlQl74",
-            authDomain: "rscch-5519e.firebaseapp.com",
-            databaseURL: "https://rscch-5519e.firebaseio.com",
-            projectId: "rscch-5519e",
-            storageBucket: "rscch-5519e.appspot.com",
-            messagingSenderId: "398902148928"
+            apiKey: "AIzaSyCZiwn0iXjvLwWnppOSRyx_sHRypWzYrVU",
+            authDomain: "firechatproject-3404e.firebaseapp.com",
+            databaseURL: "https://firechatproject-3404e.firebaseio.com/",
+            projectId: "firechatproject-3404e ",
+            storageBucket: "firechatproject-3404e.appspot.com ",
+            messagingSenderId: "640458159669"
         };
         firebase.initializeApp(config);
 
         // Get a reference to the Firebase Realtime Database
-        var chatRef = firebase.database().ref(),
-            target = document.getElementById("firechat-container"),
-            authModal = $('#auth-modal').modal({
-                show: false
-            }),
-            chat = new FirechatUI(chatRef, target);
+        var chat = new Firechat(firebase.database().ref('firebase'));
 
         chat.on('auth-required', function() {
-            //console.log('show modal');
-            //console.log(authModal);
-            $('#auth-modal').modal('show');
-            //console.log(authModal);
             return false;
         });
-
         firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                var userId = user.uid,
-                    username = user.displayName;
-                if (!username)
-                    username = user.email;
-                console.log([user, userId, username]);
-                chat.setUser(userId, username);
-                $('#user-name').text(username);
-                $('#user-info').show();
-                setTimeout(function() {
-                    chat._chat.enterRoom('-Iy1N3xs4kN8iALHV0QA')
-                }, 500);
-            } else {
-                $('#user-info').hide();
-                chat._chat.enterRoom('-Iy1N3xs4kN8iALHV0QA')
-            }
-        });
-
+              if (user) {
+                  chat.setUser(user.uid, user.displayName); // set User Current
+                  if(user.email === admin) alert("Xin chào quản trị viên");
+                  showSection("main"); // change section main
+                  selectGroup(user.email).then((a) => { // create new group
+                    showSection("room"); // change section room
+                    chat.inviteUser(adminID,a[0]); // invite admin
+                    getRoomList().then((listRoom) => { // get listRoom
+                      var keys = Object.keys(listRoom);
+                      keys.forEach((v,k)=>{
+                        console.log('v', listRoom[v].name);
+                        if(listRoom[v].name.includes(`${a[1]} - `)){
+                          let a = `<div class="col-xs-12 room-detail" id="${listRoom[v].id}">
+                                    <div class="col-xs-3">
+                                      <img src="images/customer.png" alt="" class="img-rounded center-block img-room">
+                                    </div>
+                                    <div class="col-xs-6">
+                                      <p class="name-group">
+                                        ${listRoom[v].name}
+                                      </p>
+                                    </div>
+                                    <div class="col-xs-3">
+                                      <p class="time-group">
+                                        12:00
+                                      </p>
+                                    </div>
+                                  </div>`;
+                          $(".list-room").append(a);
+                        }
+                      })
+                    })
+                  })
+              } else {
+                  showSection("login");
+              }
+          });
         function login() {
-            authModal.modal('hide');
-            user = "admin@mail.com";
-            pass = "admin123!@#";
-            // Log the user in via Twitter
-            /*var provider = new firebase.auth.TwitterAuthProvider();
-            firebase.auth().signInWithPopup(provider).catch(function(error) {
-              console.log("Error authenticating user:", error);
-            });*/
-            //Register and login
-            /*firebase.auth().createUserWithEmailAndPassword(user, pass).catch(function(error) {
-                console.log("Error authenticating user:", error);
-            });*/
-            //Login
-            firebase.auth().signInWithEmailAndPassword(user, pass).catch(function(error) {
-                console.log("Error authenticating user:", error);
+          $(".submit-login").off('click').on('click',
+          ()=>{
+            user = $("#inputEmail").val();
+            pass = $("#inputPassword").val();
+            firebase.auth().signInWithEmailAndPassword(user, pass)
+            .then((value) => {
+              alert("Đăng nhập thành công");
+              console.log(value);
+              showSection("main");
+            })
+            .catch(function(error) {
+                switch (error.code) {
+                  case "auth/argument-error":
+                  case "auth/invalid-email":
+                    alert("Email không đúng định dạng");
+                    break;
+                  case "auth/wrong-password":
+                    alert("Mật khẩu không hợp lệ.");
+                    break;
+                  default:
+                }
+            });
+          })
+        }
+        function register(user, pass) {
+            return new Promise((resolve, reject) => {
+              firebase.auth().createUserWithEmailAndPassword(user, pass)
+              .then((value) => { resolve(value); })
+              .catch((error) => { reject(error); });
             });
         }
-
         function logout() {
             firebase.auth().signOut().then(function() {
                 location.reload();
@@ -171,9 +227,84 @@
                 console.log("Error signing user out:", error);
             });
         }
+        function showRegisterForm(){
+          $(".btn-register").off('click').on('click', ()=>{
+            $(".login-form").hide('400', ()=>{
+              $(".register-form").show('400',()=>{});
+            });
+          })
+        }
+        function showLoginForm(){
+          $(".btn-login").off('click').on('click', ()=>{
+            $(".register-form").hide('400', ()=>{
+              $(".login-form").show('400',()=>{});
+            });
+          })
+        }
+        function showSection(className = "login"){
+          $('section[style*="block"]').hide('400',()=>{
+              $(`.${className}`).show('400',()=>{});
+          });
+        }
+        function createRoom(name,user){
+            return new Promise(function(resolve, reject) {
+              chat.createRoom(name + ' - ' + user, "private", function (roomId) {
+                resolve(roomId);
+              });
+            });
+        }
+        function selectGroup(user){
+            return new Promise(function(resolve, reject) {
+              $(".new-room").off('click').on('click',function () {
+                var room = $(this).attr('ref');
+                createRoom(room, user).then((roomId) => {
+                  resolve([roomId,room]);
+                })
+              })
+            });
+        }
+        function getRoomList(){
+          return new Promise(function(resolve, reject) {
+            chat.getRoomList((listRoom)=>{
+              resolve(listRoom);
+            })
+          });
+        }
+        // event change form
+        showRegisterForm();
+        showLoginForm();
+        // event register
+        $(".submit-register").off('click').on('click', ()=>{
+          let check = true;
+          register($("#inputEmail-register").val(),$("#inputPassword-register").val()).then((user) => {
+            user.updateProfile({displayName: $(`#inputName-register`).val()}).then(function() {
+              console.log(1);
+            }).catch(function(error) {
+              console.log(error);
+            });
+            alert("Đăng ký thành công");
+            $(".btn-login").trigger('click');
+            $("#inputName").val($("#inputEmail-register").val());
+            $("#inputPassword").val($("#inputPassword-register").val());
+          }).catch((err) => {
+            switch (err.code) {
+              case "auth/invalid-email":
+                alert("Địa chỉ email không hợp lệ.");
+                break;
+              case "auth/weak-password":
+                alert("Mật khẩu phải lớn hơn 6 ký tự.");
+                break;
+              default:
+                break;
+            }
+          })
+        })
+        //event login
+        login();
+
     </script>
 
-    <script>
+    <!-- <script>
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-37102688-1']);
         _gaq.push(['_trackPageview']);
@@ -186,7 +317,7 @@
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(ga, s);
         })();
-    </script>
+    </script> -->
 </body>
 
 </html>
