@@ -22,7 +22,14 @@
 </head>
 
 <body>
-    <a href="#" onclick="logout()">Logout</a>
+    <aside class="sidebar">
+      <div>
+        askdjf;laskdj
+      </div>
+      <div class="button-menu">
+          <button><img src="images/menu.png" class="menu-icon" /></button>
+      </div>
+    </aside>
     <section class="login" style="display:block">
       <div class="container login-form">
             <div class="card card-container">
@@ -60,7 +67,7 @@
     <section class="main">
       <div class="container" >
             <div class="card card-container" style="padding:0px">
-                <h5 class="text-center"><strong>Chọn hỗ trợ</strong></h5>
+                <h5 class="text-center" onclick="alert(1)" ><strong>Chọn hỗ trợ</strong></h5>
                 <div class="text-center">
                   <a href="#" class="new-room" ref="tech">
                     <img src="images/customer.png" width="50px" />
@@ -83,8 +90,12 @@
                 </div>
             </div><!-- /card-container -->
       </div>
+      <div>
+
+      </div>
     </section>
     <section class="room">
+
       <header id="top-content">
           <div class="header-title col-md-12 col-xs-12">
               <div class="col-md-2 col-xs-2">
@@ -195,11 +206,12 @@
             pass = $("#inputPassword").val();
             firebase.auth().signInWithEmailAndPassword(user, pass)
             .then((value) => {
+              alert(value);
               alert("Đăng nhập thành công");
-              console.log(value);
               showSection("main");
             })
             .catch(function(error) {
+              console.log('error', error);
                 switch (error.code) {
                   case "auth/argument-error":
                   case "auth/invalid-email":
@@ -208,7 +220,12 @@
                   case "auth/wrong-password":
                     alert("Mật khẩu không hợp lệ.");
                     break;
+                  case "auth/network-request-failed":
+                    alert("Xảy ra lỗi với đường truyền mạng. Vui lòng thử lại");
+                    break;
                   default:
+                    alert(error.message);
+                    break;
                 }
             });
           })
@@ -273,8 +290,18 @@
         // event change form
         showRegisterForm();
         showLoginForm();
+        function toggleMenu(){
+          $(".button-menu button").off('click').on('click', () => {
+            $("aside").animate({left: "-200px"}, 300);
+            $(".button-menu button").off('click').on('click', () => {
+              $("aside").animate({left: "0px"}, 300);
+              toggleMenu();
+            });
+          });
+        }
         // event register
         $(".submit-register").off('click').on('click', ()=>{
+          console.log(1);
           let check = true;
           register($("#inputEmail-register").val(),$("#inputPassword-register").val()).then((user) => {
             user.updateProfile({displayName: $(`#inputName-register`).val()}).then(function() {
@@ -301,7 +328,7 @@
         })
         //event login
         login();
-
+        toggleMenu();
     </script>
 
     <!-- <script>
