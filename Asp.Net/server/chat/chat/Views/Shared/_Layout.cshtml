@@ -1,0 +1,90 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Đăng nhập</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Content/style1.css" />
+    <link href="~/Content/Images/favicon.ico" rel="shortcut icon" />
+</head>
+
+<body id="body">
+    <aside class="sidebar" id="aside">
+        <div class="menu">
+            <div class="menu-item">
+                <a href="/Home/Profile">
+                    <div class="menu-profile">
+                        <img src="~/Content/images/avatar.jpeg" />
+                    </div>
+                    <p>
+                    </p>
+                </a>
+            </div>
+            <div class="menu-item">
+                <div class="menu-image">
+                    <img src="~/Content/images/avatar.jpeg" />
+                </div>
+                <p>
+                    Sản phẩm
+                </p>
+            </div>
+            <div class="menu-item">
+                <div class="menu-image">
+                    <img src="~/Content/images/avatar.jpeg" />
+                </div>
+                <p>
+                    Website
+                </p>
+            </div>
+            <div class="menu-item">
+                <div class="menu-image">
+                    <img src="~/Content/images/avatar.jpeg" />
+                </div>
+                <p>
+                    Nhóm hỗ trợ
+                </p>
+            </div>
+            <div class="menu-item">
+                <a href="#" class="logout">
+                    <div class="menu-image">
+                        <img src="~/Content/images/avatar.jpeg" />
+                    </div>
+                    <p>
+                        Đăng xuất
+                    </p>
+                </a>
+            </div>
+        </div>
+    </aside>
+    @RenderBody()
+    <div class="menu-footer clearfix" style="height:50px;">
+        <div class="col-md-3 col-xs-3">
+            <a href="#" class="menu-left">
+                <img src="~/Content/images/home.png" style="width:30px" />
+            </a>
+        </div>
+        <div class="col-md-3 col-xs-3">
+            <a href="/Home/ListRoom">
+                <img src="~/Content/images/home.png" style="width:30px" />
+            </a>
+        </div>
+        <div class="col-md-3 col-xs-3">
+            <a href="#">
+                <img src="~/Content/images/home.png" style="width:30px" />
+            </a>
+        </div>
+        <div class="col-md-3 col-xs-3">
+            <a href="#" class="logout">
+                <img src="~/Content/images/home.png" style="width:30px" />
+            </a>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/script.js"></script>
+</body>
+
+</html>
