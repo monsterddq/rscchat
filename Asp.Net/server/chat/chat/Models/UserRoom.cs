@@ -10,11 +10,11 @@ namespace chat.Models
     {
         [Key]
         [Column(Order = 0)]
-        public int UserId { get; set; }
+        public string UserName { get; set; }
         [Key]
         [Column(Order = 1)]
         public int RoomId { get; set; }
-        [ForeignKey("UserId")]
+        [ForeignKey("UserName")]
         public virtual User User { get; set; }
         [ForeignKey("RoomId")]
         public virtual Room Room { get; set; }

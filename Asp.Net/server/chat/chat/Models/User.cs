@@ -8,15 +8,11 @@ namespace chat.Models
     public class User
     {
         [Key]
-        [Required]
-        public int UserId { get; set; }
-        [EmailAddress]
         public string UserName { get; set; }
         [MinLength(6)]
         public string Password { get; set; }
         public string Avatar { get; set; }
         public string FullName { get; set; }
-        [Phone]
         public string Phone { get; set; }
         public bool VerifyEmail { get; set; }
         [Required]

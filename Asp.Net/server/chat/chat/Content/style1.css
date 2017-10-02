@@ -16,16 +16,11 @@ body, html {
     cursor: default;
 }
 
-/*
- * Card component
- */
 .card {
     background-color: #F7F7F7;
-    /* just in case there no content*/
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
     margin-top: 50px;
-    /* shadows and rounded borders */
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
@@ -171,7 +166,7 @@ strong{
   width: 200px;
   height: 100%;
   position: fixed;
-  background: aqua;
+  background: #fff;
   z-index: 10;
 }
 .button-menu{
@@ -266,7 +261,7 @@ input[name=message]:focus{
 }
 .other, .owner{
     border: 1px solid #bbbbbb;
-    border-radius: 50px;
+    border-radius: 10px;
     padding: 5px 20px;
     display: inline-block;
     margin: 5px 0px;
@@ -283,7 +278,7 @@ input[name=message]:focus{
 }
 .search-textbox{
   display: inline-block;
-  width: calc(100% - 80px);
+  width: calc(100% - 100px);
 }
 .detail-image{
   width: 100px;
@@ -295,6 +290,9 @@ input[name=message]:focus{
 
 }
 .menu-footer{
+    z-index:100;
+    height:50px;
+    background:#fff;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -317,3 +315,47 @@ input[name=message]:focus{
     .profile-avatar img {
         width:150px;
     }
+.lock {
+    background: bisque;
+}
+header .note {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+.note-box {
+    float: right;
+    background: #ece7e7;
+    padding: 10px;
+}
+    .note-box > .box-item {
+        padding:5px;
+        cursor:pointer;
+    }
+        .note-box > .box-item:hover {
+            background: #128de6;
+            color: #fff;
+        }
+.search-add {
+    width: 30px;
+    display: inline-block;
+    margin-left: 10px;
+    cursor:pointer;
+}
+.other span, .owner span{
+    font-size:15px;
+    font-weight:500;
+}
+.owner {
+    background: #128de6;
+    color: #fff;
+}
+.other {
+    background: #fff;
+}
+.product {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: calc(100% - 50px);
+}

@@ -12,7 +12,6 @@ namespace chat.Models
     public class Login
     {
         [Required]
-        [EmailAddress]
         public string UserName { get; set; }
         [Required]
         public string PasswordSha;
@@ -54,12 +53,12 @@ namespace chat.Models
     public class CreateRoom
     {
         public int Type { get; set; }
-        public string Email { get; set; }
+        public string UserName { get; set; }
         public string Name
         {
             get
             {
-                return this.Type + "-" + this.Email;
+                return this.Type + "-" + this.UserName;
             }
         }
     }

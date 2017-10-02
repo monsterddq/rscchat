@@ -13,14 +13,17 @@ namespace chat.Models
         [MinLength(1)]
         public string Name { get; set; }
         public bool Status { get; set; }
-        [Range(0,2)]
+        [Range(0,3)]
         public int Type { get; set; }
+        public string Background { get; set; }
+        public DateTime Time { get; set; }
 
         public virtual ICollection<UserRoom> UserRoom { get; set; }
 
         public Room()
         {
             this.UserRoom = new List<UserRoom>();
+            this.Background = "#fff";
         }
     }
 }

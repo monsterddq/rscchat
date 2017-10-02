@@ -13,9 +13,9 @@ namespace chat.Models
         public int MessageId { get; set; } 
         public DateTime Time { get; set; }
         public string Content { get; set; }
-        public int UserId { get; set; }
+        public string UserName { get; set; }
         public int RoomId { get; set; }
-        [ForeignKey("UserId")]
+        [ForeignKey("UserName")]
         public virtual User User { get; set; }
         [ForeignKey("RoomId")]
         public virtual Room Room { get; set; }

@@ -15,5 +15,9 @@ namespace chat.Controllers
         public ActionResult Chat() => View();
         public ActionResult Profile() => View();
         public ActionResult ReactJS() => View();
+        public ActionResult Website() => View();
+        public ActionResult Intro() => View();
+        public ActionResult Register() => View();
+
     }
 }

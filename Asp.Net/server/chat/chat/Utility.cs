@@ -23,17 +23,17 @@ namespace chat
         public static bool SendMail(string MailTo, string Subject,string Body)
         {
             string mail = "d3pluscompany@gmail.com";
-            string passowrd = "@d3plus.com@";
+            string passowrd = "@d3plus2017@";
             MailMessage cm = new MailMessage
             {
-                From = new MailAddress(mail)
-            };
+                From = new MailAddress(mail,"Chat App"),
+                Subject = Subject,
+                IsBodyHtml = true,
+                DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure,
+                Body = $"<!doctype html><html><head><meta charset='utf-8' /><title>Chat App</title><meta name='viewport' content='width=device-width, initial-scale=1.0'></head><body>{Body}</body></html>",
+
+        };
             cm.To.Add(MailTo);
-            cm.Subject = Subject;
-            cm.Body = Body;
-            cm.IsBodyHtml = true;
-            cm.BodyEncoding = UTF8Encoding.UTF8;
-            cm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
             SmtpClient client = new SmtpClient
             {
                 Port = 587,
@@ -42,14 +42,14 @@ namespace chat
                 Timeout = 10000,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
-                Credentials = new System.Net.NetworkCredential("Chat App", passowrd)
+                Credentials = new System.Net.NetworkCredential(mail, passowrd)
             };
             try
             {
                 client.Send(cm);
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }

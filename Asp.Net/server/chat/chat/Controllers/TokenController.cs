@@ -25,7 +25,6 @@ namespace chat.Controllers
         [AllowAnonymous]
         public bool Put([FromBody]Register register)
         {
-            if (string.IsNullOrEmpty(register.UserName) || string.IsNullOrEmpty(register.Password)) return false;
             if (!db.Users.Any(w => w.UserName == register.UserName))
             {
                 db.Users.Add(new User()
@@ -35,7 +34,8 @@ namespace chat.Controllers
                     FullName = register.FullName,
                     Role = 1,
                     VerifyEmail = false,
-                    Avatar=""
+                    Phone = register.UserName.Contains("@") ? " " : register.UserName,
+                    Avatar=" ",
                 });
                 db.SaveChanges();
                 return true;
@@ -51,7 +51,7 @@ namespace chat.Controllers
             var password = System.Web.Security.Membership.GeneratePassword(16, 4);
             u.Password = Utility.Sha512Hash(password);
             db.SaveChanges();
-            Utility.SendMail(u.UserName, "Thiết lập lại mật khẩu", "Mật khẩu mới của bạn là: " + password);
+            Utility.SendMail(u.UserName, "Thiết lập lại mật khẩu", $"Mật khẩu mới của bạn là: {password}");
             return true;
         }
 

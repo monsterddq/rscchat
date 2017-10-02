@@ -41,4 +41,5 @@
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0"
   }
+, "-vs-binding":{"AfterBuild":["install"]}
 }

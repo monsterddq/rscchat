@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "~/Views/Admin/_Layout.cshtml";
+}
+@model IEnumerable<chat.Models.User>
+<h2>Danh sách khách hàng</h2>
+<p>
+    @Html.ActionLink("Tạo mới quản trị", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên đăng nhập
+        </th>
+        <th>
+            Avatar
+        </th>
+        <th>
+            Họ và tên
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Quyền
+        </th>
+        <th>Hành động</th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Avatar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @{
+                string s = "";
+                switch (item.Role)
+                {
+                    case 0:
+                        s = "Quản trị";
+                        break;
+                    case 2:
+                        s = "Giám đôc";
+                        break;
+                    case 3:
+                        s = "Kỹ thuật";
+                        break;
+                    default:
+                        s = "Tư vấn";
+                        break;
+                }
+             }
+            @s
+        </td>
+        <td>
+            @Html.ActionLink("Sửa ", "Edit", new { id=item.UserId }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.UserId })
+        </td>
+    </tr>
+}
+
+</table>

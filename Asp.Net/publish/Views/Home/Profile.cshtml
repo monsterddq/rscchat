@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+}
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Hồ sơ cá nhân</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Content/style1.css" />
+    <link href="~/Content/Images/favicon.ico" rel="shortcut icon" />
+</head>
+
+<body>
+    <header>
+        <div class="button-back">
+            <a href="/Home/main" class="display-block">
+                <img src="~/Content/Images/back.png" alt="" class="img-rounded center-block">
+            </a>
+        </div>
+        <div class="room-name">
+            <span>Chi tiết</span>
+        </div>
+    </header>
+    <div class="profile text-center">
+        <div class="profile-avatar">
+            <img src="~/Content/images/logo.jpg" />
+        </div>
+        <div class="profile-name">
+            <span>Họ và tên: </span>
+        </div>
+        <div class="profile-email">
+            <span>Email: </span>
+        </div>
+        <div class="profile-phone">
+            <span>Số điện thoại: </span>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts/script.js"></script>
+</body>
+
+</html>

@@ -8,7 +8,6 @@ using System.Data.Entity;
 
 namespace chat.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [JwtAuthentication]
     public class MessageController : ApiController
     {
@@ -17,7 +16,7 @@ namespace chat.Controllers
         {
             using (var tran = db.Database.BeginTransaction())
             {
-                return db.Messages.Where(w => w.RoomId == id).Include(w => w.Room).Include(w => w.User).OrderBy(w => w.Time).ToList();
+                return db.Messages.Where(w => w.RoomId == id).Include(w => w.Room).Include(w => w.User).OrderByDescending(w => w.Time).Take(100).ToList().OrderBy(w=>w.Time).ToList();
             }
         }
 
