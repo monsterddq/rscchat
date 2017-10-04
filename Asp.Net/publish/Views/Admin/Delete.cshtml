@@ -65,12 +65,13 @@
 
         <div class="form-actions no-color">
             <h4>Chọn hình thức xóa</h4>
+            <input type="hidden" name="username" value="@Model.UserName" />
             <input type="radio" name="option" value="0" /> Xóa hết dữ liệu của nhân viên: Thông tin cá nhân, tin nhắn với khách hàng. <br />
             <input type="radio" name="option" value="1" /> Xóa thông tin cá nhân của nhân viên và chuyển hết tin nhắn tới nhân viên: 
             <select name="user" class="form-group">
                 @foreach (var item in ViewBag.User)
                 {
-                    <option value="@item.UserId">@item.UserName</option>
+                    <option value="@item.UserName">@item.UserName</option>
                 }
             </select>
             <br />

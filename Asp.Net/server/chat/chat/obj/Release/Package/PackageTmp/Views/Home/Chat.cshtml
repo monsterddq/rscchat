@@ -1,0 +1,79 @@
+﻿@{ 
+    Layout = null;
+}
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Đăng nhập</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Content/style1.css" />
+    <link href="~/Content/Images/favicon.ico" rel="shortcut icon" />
+</head>
+
+<body>
+
+    <div class="body">
+        <header>
+            <div class="button-back">
+                <a href="/Home/main" class="display-block">
+                    <img src="~/Content/Images/back.png" alt="" class="img-rounded center-block">
+                </a>
+            </div>
+            <div class="room-name">
+                <span>Tên nhóm</span>
+            </div>
+            <div class="note">
+                <a href="#" class="display-block">
+                    <img src="~/Content/Images/warning.png" alt="" class="img-rounded center-block" width="30px">
+                </a>
+            </div>
+            <div class="note-box hidden">
+                <input type="file" name="background" id="background" class="hide" />
+                <div class="box-item" id="changeBG">
+                    Thay đổi ảnh nền
+                </div>
+                <div class="box-item">
+                    Mời thêm người vào nhóm
+                </div>
+                <div class="box-item">
+                    Rời khỏi nhóm
+                </div>
+                <div class="box-item" id="backup">
+                    Sao lưu dữ liệu
+                </div>
+                <div class="box-item">
+                    Đóng nhóm
+                </div>
+            </div>
+        </header>
+        <div class="list-message">
+        </div>
+        <footer>
+            <div class="button-back">
+                <a href="#" class="display-block">
+                    <img src="~/Content/images/media.png" alt="" id="image" class="img-rounded center-block" width="30px">
+                    <input type="file" name="image" id="image1" class="hidden"/>
+                </a>
+            </div>
+            <div class="input-message">
+                <input type="text" name="message" />
+                <a href="#" class="display-block" id="send">
+                    <img src="~/Content/images/send.png" alt="" class="img-rounded center-block">
+                </a>
+            </div>
+
+        </footer>
+    </div>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts//app.js"></script>
+    <script src="~/Scripts/script.js"></script>
+</body>
+
+</html>

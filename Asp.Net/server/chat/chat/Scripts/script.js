@@ -278,7 +278,6 @@ $(document).ready(function () {
           break;
         case "/home/intro":
         case "/home/website":
-            popup();
             getUserCurrent().then(() => {
                 toggleMenu();
             })

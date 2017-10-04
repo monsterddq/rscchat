@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Đăng nhập</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Content/style1.css" />
+    <link href="~/Content/Images/favicon.ico" rel="shortcut icon" />
+</head>
+
+<body>
+    <div class="container register-form">
+        <div class="card card-container">
+            <h5 class="text-center"><strong>Đăng ký tài khoản</strong></h5>
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin">
+                <input type="text" id="inputName-register" name="fullname" class="form-control" placeholder="Họ và tên" required autofocus>
+                <input type="email" id="inputEmail-register" name="email" class="form-control" placeholder="Email hoặc số điện thoại" required autofocus>
+                <input type="password" id="inputPassword-register" name="password" class="form-control" placeholder="Mật khẩu" required autofocus>
+                <button class="btn btn-primary btn-login" type="button"><a href="/" style="color:#fff">Đăng nhập</a></button>
+                <button class="btn btn-primary pull-right submit-register" type="button">Đăng ký</button>
+            </form>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/script.js"></script>
+</body>
+
+</html>

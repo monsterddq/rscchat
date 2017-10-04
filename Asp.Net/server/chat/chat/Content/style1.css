@@ -177,7 +177,7 @@ strong{
 .menu-icon{
   width: 20px;
 }
-button > a{
+button > a, button > a:hover, button:hover > a{
   color: #fff;
 }
 
@@ -358,4 +358,17 @@ header .note {
     top: 0;
     width: 100%;
     height: calc(100% - 50px);
+}
+.menu-footer img {
+    width:30px;
+}
+iframe {
+    border:none;
+}
+.profile-info {
+    padding: 10px 0px;
+}
+.profile-info img {
+    width: 50px;
+    border-radius: 50%;
 }

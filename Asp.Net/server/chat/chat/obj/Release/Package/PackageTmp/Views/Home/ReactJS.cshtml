@@ -1,0 +1,35 @@
+﻿
+    <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0-alpha1/JSXTransformer.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script type="text/javascript">
+        function toggleMenu() {
+            document.getElementById('body').onclick = function (e) {
+                if (e.target !== document.getElementById('aside')) {
+                    if ($("#aside").has(e.target).length === 0) {
+                        if ($("aside").css('left') === "0px") $("aside").animate({ left: "-200px" }, 300);
+                    }
+                }
+            }
+            $('.menu-left').click(function (event) {
+                event.stopPropagation();
+                if ($("aside").css('left') === "-200px") $("aside").animate({ left: "0px" }, 300);
+            });
+        }
+        toggleMenu();
+        var connection = $.hubConnection(`/signalr`, { useDefaultPath: false});
+        var ChatHubProxy = connection.createHubProxy('roomHub');
+        ChatHubProxy.on('getListRoom', function (list) {
+            localStorage.setItem('list', JSON.stringify(list));
+        });
+        connection.start().done(function () {
+            setInterval(() => { ChatHubProxy.invoke('getListRoom');  },500);
+            
+        });
+    </script>
+    <script type="text/jsx" src="@Url.Content("~/Scripts/Tutorial.jsx")"></script>

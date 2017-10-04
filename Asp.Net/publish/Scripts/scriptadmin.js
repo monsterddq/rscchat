@@ -1,4 +1,5 @@
 ﻿var RegEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+var RegPhone = /^[0]{1}[1,9]{1}[0-9]{8,9}$/;
 var User = {
     Name: "",
     Email: "",
@@ -145,7 +146,7 @@ $(document).ready(function () {
             UserName: $(`input[name=username]`).val(),
             Password: $(`input[name=password]`).val()
         }
-        if (RegEmail.test(data.UserName) && data.Password.length >= 6) {
+        if ((RegEmail.test(data.UserName) || RegPhone.test(data.UserName)) && data.Password.length >= 6) {
             ajaxPostPromise(`/api/admins`, data)
                 .then((a) => {
                     if (!a) alert("Thông tin tài khoản sai.");

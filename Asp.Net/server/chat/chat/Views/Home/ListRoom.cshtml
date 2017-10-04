@@ -10,6 +10,7 @@
         headers: { 'Authorization': localStorage.getItem("token") }
     })
     $.get('/api/users', function (data) {
+        localStorage.setItem('user', data);
         data = JSON.parse(data);
         localStorage.setItem('tokenreset', data[0].Value);
     })
@@ -17,12 +18,6 @@
 <script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
 <script src="~/signalr/hubs"></script>
 <script type="text/javascript">
-    $("#product").click(function () {
-        $(".product").removeClass("hidden");
-        $("#main").addClass("hidden");
-        $("body").trigger("click");
-        return false;
-    })
     var connection = $.hubConnection(`/signalr`, { useDefaultPath: false });
     var ChatHubProxy = connection.createHubProxy('roomHub');
     ChatHubProxy.on('getListRoom', function (list) {
@@ -35,5 +30,4 @@
 
     });
 </script>
-<script type="text/jsx" src="@Url.Content("~/Scripts/Tutorial.jsx")">
-</script>
+<script type="text/jsx" src="@Url.Content("~/Scripts/App.jsx")"></script>

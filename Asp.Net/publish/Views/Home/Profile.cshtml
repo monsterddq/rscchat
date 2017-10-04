@@ -19,10 +19,11 @@
         <div class="button-back">
             <a href="/Home/main" class="display-block">
                 <img src="~/Content/Images/back.png" alt="" class="img-rounded center-block">
+                
             </a>
         </div>
         <div class="room-name">
-            <span>Chi tiết</span>
+            <span>Thông tin cá nhân</span>
         </div>
     </header>
     <div class="profile text-center">
@@ -38,11 +39,16 @@
         <div class="profile-phone">
             <span>Số điện thoại: </span>
         </div>
+        <div>
+            <input type="file" name="image" id="image1" class="hidden" />
+            <button class="btn" id="image">Cập nhập avatar</button>
+        </div>
     </div>
     <script src="~/Scripts/jquery.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
     <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts/app.js"></script>
     <script src="~/Scripts/script.js"></script>
 </body>
 

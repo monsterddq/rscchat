@@ -282,11 +282,3 @@ function changeBackground() {
         });
     })
 }
-function popup() {
-    $("#product").click(function () {
-        $(".product").removeClass("hidden");
-        $("#main").addClass("hidden");
-        $("body").trigger("click");
-        return false;
-    })
-}

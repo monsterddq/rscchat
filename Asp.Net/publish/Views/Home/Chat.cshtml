@@ -32,11 +32,18 @@
                 </a>
             </div>
             <div class="note-box hidden">
+                <input type="file" name="background" id="background" class="hide" />
+                <div class="box-item" id="changeBG">
+                    Thay đổi ảnh nền
+                </div>
                 <div class="box-item">
                     Mời thêm người vào nhóm
                 </div>
                 <div class="box-item">
                     Rời khỏi nhóm
+                </div>
+                <div class="box-item" id="backup">
+                    Sao lưu dữ liệu
                 </div>
                 <div class="box-item">
                     Đóng nhóm
@@ -48,7 +55,8 @@
         <footer>
             <div class="button-back">
                 <a href="#" class="display-block">
-                    <img src="~/Content/images/media.png" alt="" class="img-rounded center-block" width="30px">
+                    <img src="~/Content/images/media.png" alt="" id="image" class="img-rounded center-block" width="30px">
+                    <input type="file" name="image" id="image1" class="hidden"/>
                 </a>
             </div>
             <div class="input-message">
@@ -64,6 +72,7 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
     <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts//app.js"></script>
     <script src="~/Scripts/script.js"></script>
 </body>
 

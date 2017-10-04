@@ -261,7 +261,7 @@ input[name=message]:focus{
 }
 .other, .owner{
     border: 1px solid #bbbbbb;
-    border-radius: 50px;
+    border-radius: 10px;
     padding: 5px 20px;
     display: inline-block;
     margin: 5px 0px;
@@ -290,6 +290,8 @@ input[name=message]:focus{
 
 }
 .menu-footer{
+    z-index:100;
+    height:50px;
     background:#fff;
     position: fixed;
     bottom: 0;
@@ -323,7 +325,7 @@ header .note {
 }
 .note-box {
     float: right;
-    background: #fff;
+    background: #ece7e7;
     padding: 10px;
 }
     .note-box > .box-item {
@@ -339,4 +341,34 @@ header .note {
     display: inline-block;
     margin-left: 10px;
     cursor:pointer;
+}
+.other span, .owner span{
+    font-size:15px;
+    font-weight:500;
+}
+.owner {
+    background: #128de6;
+    color: #fff;
+}
+.other {
+    background: #fff;
+}
+.product {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: calc(100% - 50px);
+}
+.menu-footer img {
+    width:30px;
+}
+iframe {
+    border:none;
+}
+.profile-info {
+    padding: 10px 0px;
+}
+.profile-info img {
+    width: 50px;
+    border-radius: 50%;
 }
