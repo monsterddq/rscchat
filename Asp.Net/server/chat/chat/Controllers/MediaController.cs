@@ -88,5 +88,11 @@ namespace chat.Controllers
             return u.Avatar;
 
         }
+
+        [HttpGet]
+        public string FetchGroupBackGround(int id)
+        {
+            return db.Rooms.Find(id).Background;
+        }
     }
 }

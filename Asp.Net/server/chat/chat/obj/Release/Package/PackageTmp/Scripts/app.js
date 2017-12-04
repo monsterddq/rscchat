@@ -223,34 +223,10 @@ function image() {
         return false;
     })
 }
-function chat() {
-    if ($('input[name=message]').val()) {
-        ChatHubProxy.invoke('sendMessage', User.UserName, $('input[name=message]').val(), getParameterURL("type").value);
-        $('input[name=message]').val('').focus();
-    }
-}
 function image() {
     $("#image").click(function () {
         $("input[name=image]").trigger("click");
         return false;
-    })
-}
-function close() {
-    $(".note-box .box-item:nth-child(3)").off('click').on('click', function () {
-        ChatHubProxy.invoke('closeRoom', getParameterURL("type").value);
-        $(".note-box").toggleClass('hidden');
-    })
-}
-function addMember() {
-    $(".note-box .box-item:nth-child(1)").off('click').on('click', function () {
-        var email = prompt("Nhập email admin cần thêm: ");
-        if (RegEmail.test(email)) {
-            ChatHubProxy.invoke('addMember', email, getParameterURL("type").value);
-            $(".note-box").toggleClass('hidden');
-        }
-        else {
-            alert("Email không hợp lệ");
-        }
     })
 }
 function changeBackground() {

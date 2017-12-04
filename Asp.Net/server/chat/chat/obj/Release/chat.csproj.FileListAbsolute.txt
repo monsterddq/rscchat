@@ -107,3 +107,5 @@ E:\C#-ASP.NET\rscchat\Asp.Net\server\chat\chat\bin\chat.dll.config
 E:\C#-ASP.NET\rscchat\Asp.Net\server\chat\chat\bin\chat.dll
 E:\C#-ASP.NET\rscchat\Asp.Net\server\chat\chat\bin\chat.pdb
 E:\C#-ASP.NET\rscchat\Asp.Net\server\chat\chat\obj\Release\chat.csprojResolveAssemblyReference.cache
+E:\C#-ASP.NET\rscchat\Asp.Net\server\chat\chat\bin\System.ValueTuple.dll
+E:\C#-ASP.NET\rscchat\Asp.Net\server\chat\chat\bin\System.ValueTuple.xml

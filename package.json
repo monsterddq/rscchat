@@ -28,6 +28,7 @@
     "package.json"
   ],
   "dependencies": {
+    "@aspnet/signalr-client": "^1.0.0-alpha2-final",
     "firebase": "3.x.x"
   },
   "devDependencies": {
@@ -40,6 +41,10 @@
     "grunt-contrib-less": "~0.5.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0"
+  },
+  "-vs-binding": {
+    "AfterBuild": [
+      "install"
+    ]
   }
-, "-vs-binding":{"AfterBuild":["install"]}
 }

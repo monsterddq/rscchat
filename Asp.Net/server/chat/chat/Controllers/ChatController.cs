@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http;
+using System.Data.Entity;
 
 namespace chat.Controllers
 {
@@ -41,6 +42,12 @@ namespace chat.Controllers
                 return false;
             }
             
+        }
+
+        public (string name,int type) Get(int id, string username)
+        {
+            var q = db.UseRooms.Include(w => w.User).Include(w=>w.Room).Where(w => w.RoomId == id && !w.UserName.Equals(username)).FirstOrDefault();
+            return (q.User.FullName, q.Room.Type);
         }
     }
 }

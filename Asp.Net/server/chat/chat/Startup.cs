@@ -12,16 +12,16 @@ namespace chat
     {
         public void Configuration(IAppBuilder app)
         {
-            //app.Map("/signalr", map =>
-            //{
-            //    var hubConfiguration = new HubConfiguration
-            //    {
-            //        EnableDetailedErrors = true,
-            //        EnableJavaScriptProxies = true
-            //    };
-            //    map.RunSignalR(hubConfiguration);
-            //});
-            app.MapSignalR();
+            app.Map("/signalr", map =>
+            {
+                var hubConfiguration = new HubConfiguration
+                {
+                    EnableDetailedErrors = true,
+                    EnableJavaScriptProxies = true
+                };
+                map.RunSignalR(hubConfiguration);
+            });
+            //app.MapSignalR();
         }
     }
 }

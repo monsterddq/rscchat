@@ -69,7 +69,6 @@ namespace chat.Hubs
             }
 
         }
-
         public void CloseRoom(int id)
         {
             var q = db.Rooms.Find(id);
@@ -83,13 +82,13 @@ namespace chat.Hubs
             var u = db.Users.Where(w => w.UserName == username).SingleOrDefault();
             if (u == null)
             {
-                Clients.Caller.addMember("Không tìm thấy admin nào với email: " + username);
+                Clients.Caller.addMember("Không tìm thấy admin nào với email/SĐT: " + username);
             }
             else
             {
                 db.UseRooms.Add(new UserRoom() { RoomId = roomid, UserName = username });
                 db.SaveChanges();
-                Clients.Caller.addMember("Đã thêm admin có email: " + username + " vào nhóm");
+                Clients.Caller.addMember("Đã thêm admin có email/SĐT: " + username + " vào nhóm");
             }
 
         }

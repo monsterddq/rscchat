@@ -381,6 +381,7 @@ class Setting extends React.Component
         return (
             <div className={hidden}>
                 <Person />
+                <AddFriend />
                 <MenuSetting />
             </div>
         )
@@ -434,7 +435,7 @@ class MenuSetting extends React.Component
             <div className="profile-info clearfix" role="button" onClick={this.logout}>
                 <div className="col-md-3 col-xs-3 col-sm-3 text-center">
                     <img src="/Content/Images/icon4.png" />
-                </div>
+                </div >
                 <div className="col-md-9 col-xs-9 col-sm-9 text-left">
                     <h3 className="modal-title">
                         Đăng xuất
@@ -444,8 +445,29 @@ class MenuSetting extends React.Component
             )
     }
 }
+class AddFriend extends React.Component
+{
+    handleClick()
+    {
+        alert("Chức năng đang cập nhập");
+    }
+
+    render() {
+        return (
+            <div className="profile-info clearfix" role="button" onClick={this.actionNavigate}>
+                <div className="col-md-3 col-xs-3 col-sm-3 text-center">
+                    <img src="/Content/Images/addicon.png" />
+                </div>
+                <div className="col-md-9 col-xs-9 col-sm-9 text-left">
+                    <h3 className="modal-title" onClick={this.handleClick.bind(this)}>
+                        Thêm bạn
+                    </h3>
+                </div>
+            </div>
+        )
+    }
+}
 ReactDOM.render(
     <App />,
     document.getElementById('root')
 );
-

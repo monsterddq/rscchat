@@ -55,7 +55,12 @@ $(document).ready(function () {
             {
                 $(".note").remove();
                 $(".note-box").remove();
+                ajaxGetPromise(`/api/chat`, { id: parseInt(getParameterURL("type").value), username: User.UserName })
+                    .then((b) => {
+                        $(".room-name span").text(`${getTypeString(b.Item2)} - ${b.Item1}`);
+                    })
             }
+            
             ajaxGetPromise(`/api/message`,{id: getParameterURL("type").value})
                 .then((a) => {
                     a.forEach((v, k) => {
@@ -104,16 +109,20 @@ $(document).ready(function () {
                 $('.list-message').append(b);
                     })
                     try {
-                        $("body").css('background', a[0].Room.Background.includes("#") ? a[0].Room.Background :  `url('${a[0].Room.Background}')  no-repeat center center fixed`);
+                        $("body").css('background', a[0].Room.Background.includes("#") ? a[0].Room.Background : `url('${a[0].Room.Background}')  no-repeat center center fixed`);
+                        console.log(a[0].Room.Type);
                         a[0].Room.Type != 3
                           ? $(".room-name span").html(`${getTypeString(a[0].Room.Type)} - ${a[0].User.FullName}`)
                           : $(".room-name span").html(`${a[0].Room.Name}`);
-                  
-                        
-
                       } catch (e) {
                     }
                     $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+                    if (User.Role != 1) {
+                        ajaxGetPromise(`/api/chat`, { id: parseInt(getParameterURL("type").value), username: User.UserName })
+                            .then((b) => {
+                                $(".room-name span").text(`${getTypeString(a[0].Room.Type)} - ${b}`);
+                            })
+                    }
                 })
             var connection = $.hubConnection(`/signalr`, { useDefaultPath: false, qs: `a=${User.UserName}&b=${getParameterURL("type").value}`});
             var ChatHubProxy = connection.createHubProxy('chatHub');
@@ -178,19 +187,39 @@ $(document).ready(function () {
             })
             connection.start().done(function() {
                 $('#send').click(function () {
-                    chat();
+                    if ($('input[name=message]').val()) {
+                        ChatHubProxy.invoke('sendMessage', User.UserName, $('input[name=message]').val(), getParameterURL("type").value);
+                        $('input[name=message]').val('').focus();
+                    }
                     return false;
                 });
                 $('input[name=message]').bind("enterKey", function (e) {
-                    chat();
+                    if ($('input[name=message]').val()) {
+                        ChatHubProxy.invoke('sendMessage', User.UserName, $('input[name=message]').val(), getParameterURL("type").value);
+                        $('input[name=message]').val('').focus();
+                    }
                 });
                 $('input[name=message]').keyup(function (e) {
                     if (e.keyCode === 13) {
                         $(this).trigger("enterKey");
                     }
                 });
-                close();
-                addMember();
+                //Close
+                $(".note-box .box-item:nth-child(3)").off('click').on('click', function () {
+                    ChatHubProxy.invoke('closeRoom', getParameterURL("type").value);
+                    $(".note-box").toggleClass('hidden');
+                })
+                // Add member
+                $("#addgroup").off('click').on('click', function () {
+                    var email = prompt("Nhập Email/SĐT admin cần thêm: ");
+                    if (RegEmail.test(email) || RegPhone.test(phone)) {
+                        ChatHubProxy.invoke('addMember', email, getParameterURL("type").value);
+                        $(".note-box").toggleClass('hidden');
+                    }
+                    else {
+                        alert("Email/SĐT không hợp lệ");
+                    }
+                })
             });
             image();
             document.getElementsByName("image")[0].addEventListener("change", function () {
@@ -213,12 +242,11 @@ $(document).ready(function () {
                             ChatHubProxy.invoke('sendMessage', User.UserName, result, getParameterURL("type").value);
                         },
                         error: function (err) {
-                            alert(err.statusText);
+                            alert("Tệp tải lên không đúng định dạng hoặc quá lớn.");
                         }
                     });
 
                 }, 1000);
-               
             });
             $(".note > a").click(function () {
                 $(".note-box").toggleClass('hidden');
