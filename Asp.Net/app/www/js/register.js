@@ -1,17 +1,17 @@
 class UserLogin{
-  constructor(fullname="",username="",password ="")
+  constructor(FullName="",UserName="",Password ="")
   {
-    this.fullname = fullname;
-    this.username = username;
-    this.password = password;
+    this.FullName = FullName;
+    this.UserName = UserName;
+    this.Password = Password;
   }
 }
 function isValid(data){
-  if(!data.fullname || !data.username || !data.password){
+  if(!data.FullName || !data.UserName || !data.Password){
     alertify.warning(notify());
     return false;
   }
-  if(data.username.includes('@') && !RegEmail.test(data.username)){
+  if(data.UserName.includes('@') && !RegEmail.test(data.UserName)){
     alertify.warning(notify("email"));
     return false;
   }
@@ -24,7 +24,6 @@ function register(){
     $("input[name=username]").val(),
     $("input[name=password]").val(),
   );
-  console.log(data);
   if(!isValid(data)) return false;
   ajaxPromise("/api/user/register","POST",data)
   .then((a)=>{

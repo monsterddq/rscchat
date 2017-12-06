@@ -2,7 +2,7 @@ var connection = new signalR.HubConnection(`${host}/roomHub`);
 connection.on('addMessage', (message) => {
     console.log(message);
 });
-
+if(!User.UserName) window.location.href = "/login.html";
 class App extends React.Component {
     constructor()
     {
@@ -266,7 +266,6 @@ class ListRoom extends React.Component{
   render(){
       return (
         <div className="text">
-          <button id="button">Click</button>
           {this.state.main}
         </div>
       )
@@ -310,6 +309,7 @@ class RoomUser{
     this.ref = ref
   }
 }
+
 class ListRoomUser extends React.Component{
   constructor(props){
     super(props);
@@ -317,13 +317,16 @@ class ListRoomUser extends React.Component{
   }
 
   listRoom(){
-    return [new RoomUser("text-center","images/customer.png","Giám đốc","giamdoc"),
-            new RoomUser("text-center col-xs-6","images/customer.png","Kỹ thuật","kythuat"),
-            new RoomUser("text-center col-xs-6","images/customer.png","Tư vấn","tuvan")];
+    return [new RoomUser("text-center","images/customer.png","Giám đốc","manager"),
+            new RoomUser("text-center col-xs-6","images/customer.png","Kỹ thuật","technical"),
+            new RoomUser("text-center col-xs-6","images/customer.png","Tư vấn","advisory")];
   }
 
   handleSelectRoom(id){
-
+    ajaxPromise(link['post_room'],"POST",{roomtype: id})
+    .then(rs => {
+      console.log(rs);
+    })
   }
 
   render(){
