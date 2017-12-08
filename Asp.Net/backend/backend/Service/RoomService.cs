@@ -98,12 +98,7 @@ namespace backend.Service
             => userRoomRepository.FindBy(w => w.UserName.Equals(user.UserName)).Count != Constant.ZERO;
 
         public bool HasRoomByUserAndType(string username, int type)
-        {
-            var all = roomRepository.GetAll();
-            var obj = roomRepository.FindBy(w => w.Type == type && w.UserRoom.Any(e => e.UserName.Equals(username)));
-            return obj.Count != 0;
-        }
-        //=> roomRepository.FindBy(w => w.Type == type && w.UserRoom.Any(e => e.UserName.Equals(username))).Count != 0;
+            => roomRepository.FindBy(w => w.Type == type && w.UserRoom.Any(e => e.UserName.Equals(username))).Count != 0;
 
         public bool IsExistsRoomById(int roomId)
             => roomRepository.Find(roomId) != null;

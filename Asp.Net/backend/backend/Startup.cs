@@ -1,20 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using backend.Entity;
 using backend.Config;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using static backend.Utilities.Constant;
+using static backend.Utilities.Utility;
 using backend.Hubs;
 using backend.Middleware;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace backend
 {
@@ -96,7 +94,11 @@ namespace backend
             services.AddSignalR();
             services.AddSignalRCore();
             services.AddMvc();
-            services.AddDbContext<ChatDBContext>();
+            services.AddDbContextPool<ChatDBContext>(option =>
+            {
+                option.UseLoggerFactory(CustomLoggerFactory);
+                option.ConfigureWarnings(warnings => warnings.Throw(CoreEventId.IncludeIgnoredWarning));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

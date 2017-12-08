@@ -13884,11 +13884,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\C#-ASP.NET\\rscchat\\Asp.Net\\backend\\backend\\backend.csproj",
+      "projectUniqueName": "D:\\.NET Core\\rscchat\\Asp.Net\\backend\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "D:\\C#-ASP.NET\\rscchat\\Asp.Net\\backend\\backend\\backend.csproj",
+      "projectPath": "D:\\.NET Core\\rscchat\\Asp.Net\\backend\\backend\\backend.csproj",
       "packagesPath": "C:\\Users\\Doan Quoc Thai\\.nuget\\packages\\",
-      "outputPath": "D:\\C#-ASP.NET\\rscchat\\Asp.Net\\backend\\backend\\obj\\",
+      "outputPath": "D:\\.NET Core\\rscchat\\Asp.Net\\backend\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

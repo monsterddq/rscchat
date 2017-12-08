@@ -159,17 +159,20 @@ strong{
   color:#000;
 }
 .img-room{
-  width: 50px;
+  width: 35px;
   border-radius: 50px;
 }
 .name-group{
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   margin-bottom: 0px;
   color:#333;
 }
 .room-detail{
   padding: 5px 0px;
+}
+.room-detail div:nth-child(3) span{
+  font-size: 11px;
 }
 .sidebar{
   width: 200px;
@@ -232,7 +235,7 @@ header{
   line-height: 50px;
   font-size: 20px;
   font-weight: bold;
-  color: #000;
+  color: #fff;
 }
 footer{
   background: #fff;
@@ -268,19 +271,32 @@ input[name=message]:focus{
 }
 .list-message{
   padding: 50px 10px;
+  background-size: contain!important;
+}
+.list-message p{
+  margin-bottom: 0px;
+  font-size:10px;
 }
 .other, .owner{
     border: 1px solid #bbbbbb;
-    border-radius: 50px;
-    padding: 5px 20px;
+    border-radius: 5px;
+    padding: 5px 10px;
     display: inline-block;
     margin: 5px 0px;
+    font-size: 14px;
+}
+.other{
+  background: #fff;
+}
+.owner,.owner p{
+  background: #c6eafa;
+  text-align: right;
 }
 .detail-message-right{
   float: right;
 }
-.detail-message-left, .detail-message-right{
-  display: flex;
+.detail-message-left{
+  float: left;
 }
 .search-icon{
     display: inline-block;
@@ -343,4 +359,13 @@ padding: 10px;
 .note-box > .box-item {
     padding: 5px;
     cursor: pointer;
+}
+#golast{
+  display: none;
+}
+.d-none{
+  display: none;
+}
+.ajs-close{
+  float:right;
 }

@@ -17,6 +17,7 @@ namespace backend.Utilities
         public static string HubListRoom = "listroom";
 
         public static string HubCreateRoom = "createroom";
+        public static string HubFetchMessage = "fetchmessage";
 
         /// <summary>
         /// List Room Type

@@ -8,39 +8,46 @@ using Microsoft.EntityFrameworkCore;
 using backend.Entity;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
+using backend.DTO;
+using backend.Service;
+using backend.Hubs;
+using Microsoft.AspNetCore.Hosting;
 
 namespace backend.Controllers
 {
+    [Produces("application/json")]
     public class MessagesController : BaseController
     {
-        [HttpPost]
-        [Route("/api/media")]
-        public string SendMedia(List<IFormFile> files)
-        {
-            long size = files.Sum(w => w.Length);
+        protected IHostingEnvironment _hostingEnvironment;
+        private RoomService roomService;
+        private MessageService messageService;
+        private MessageHub messageHub;
 
-            var filePath = $"{Directory.GetCurrentDirectory()}/Upload";
+        public MessagesController(IHostingEnvironment hostingEnvironment)
+        {
+            roomService = new RoomService();
+            messageService = new MessageService();
+            messageHub = new MessageHub();
+            _hostingEnvironment = hostingEnvironment;
+        }
+
+
+        [HttpPost]
+        [Route("api/media")]
+        public async Task<string> SendMedia(string file,string name)
+        {
+
+            var uploads = Path.Combine(_hostingEnvironment.WebRootPath, $"uploads/{name}");
             try
             {
-                foreach (var item in files)
-                {
-                    if (ValidateImage(item))
-                    {
-                        using (var stream = new FileStream(filePath, FileMode.Create))
-                        {
-                            item.CopyToAsync(stream);
-                        }
-                    }
-                }
-                return $"{filePath}/{files[0].FileName}";
+                System.IO.File.WriteAllBytes(uploads, Convert.FromBase64String(file.Split(',')[1]));
+                return $"/uploads/{name}";
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return string.Empty;
-                throw new Exception("Can't upload image");
-                
+                return "Can't upload file";
             }
-            
         }
 
         private bool ValidateImage(IFormFile file)
@@ -51,6 +58,26 @@ namespace backend.Controllers
                || file.Headers["Content-type"].Equals("image/jpeg"))
                 throw new Exception("Type file is incorrect.");
             return true;
+        }
+
+        /// <summary>
+        /// Get List message history in room by length
+        /// </summary>
+        /// <param name="room_id"></param>
+        /// <param name="username"></param>
+        /// <param name="limit"></param>
+        [HttpGet]
+        [Authorize]
+        [Route("api/message")]
+        public List<Message> Get(RequestHistoryMessage request)
+        {
+            var room = roomService.FindOne(request.RoomId); // get room by id
+            if (room == null)
+                throw new Exception("Can't find Room by RoomId");
+            if (!messageHub.HasBelongRoom(request.RoomId, request.UserName))
+                throw new Exception("You don't belong this room");
+            return messageService.LimitedWithGetAllByRoom(room.RoomId, request.Limit);
+
         }
     }
 }

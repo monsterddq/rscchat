@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Upload\" />
-    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\background\" />
   </ItemGroup>
 
   <ItemGroup>

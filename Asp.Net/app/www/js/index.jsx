@@ -1,7 +1,9 @@
 var connect_room = new signalR.HubConnection(`${host}/signalR/roomHub?authorization=Bearer ${localStorage.getItem('bear')}`);
-var connect_chat = new signalR.HubConnection(`${host}/signalR/messageHub?authorization=Bearer ${localStorage.getItem('bear')}`);
-console.log(connect_chat);
-// connect_chat.hubs.qs = {"Authorization":``};
+var interval_room;
+connect_room.start().then((rs)=>{},(error)=>{
+  if(error.statusCode===401)
+    window.location.href="login.html";
+});
 if(!User.UserName) window.location.href = "/login.html";
 class App extends React.Component {
     constructor(){
@@ -11,10 +13,7 @@ class App extends React.Component {
           screen: localStorage.getItem('screen') || 1,
           roomId: localStorage.getItem('roomId') || 0,
         }
-    }
 
-    componentDidMount(){
-      connect_room.start();
     }
 
     handleMenu(id){
@@ -24,9 +23,19 @@ class App extends React.Component {
     }
 
     handleScreen(id){
+      clearInterval(interval_room);
       localStorage.setItem('screen',2);
       localStorage.setItem('roomId',id);
       this.setState({screen: 2, roomId: id});
+    }
+
+    handleBackMain(){
+      localStorage.setItem('screen',1);
+      this.setState({screen: 1});
+    }
+
+    handleSelectRoom(id){
+
     }
 
     switchScreen(){
@@ -41,7 +50,7 @@ class App extends React.Component {
           break;
         case 2:
         case "2":
-          screen = <ChatRoom roomId={this.state.roomId}/>;
+          screen = <ChatRoom roomId={this.state.roomId} handleBackMain={this.handleBackMain.bind(this)}/>;
           break;
         default:
           screen = <div>
@@ -284,7 +293,7 @@ class ListRoom extends React.Component{
   componentWillMount(){
     let main = User.Role=="4"
              ? <ListRoomUser handleScreen={this.handleScreen.bind(this)} />
-           : <div>Admin</div>; // bind handleScreen
+           : <ListRoomAdmin handleScreen={this.handleScreen.bind(this)}  />; // bind handleScreen
     this.setState({main: main});
   }
 
@@ -292,14 +301,6 @@ class ListRoom extends React.Component{
     this.props.handleScreen(id);
   }
 
-  handleSearch(id){
-    alert(id);
-  }
-
-  handleAdd(id){
-    alert(id);
-  }
-  // <Search handleSearch={this.handleSearch.bind(this)} handleAdd={this.handleAdd.bind(this)} />
   render(){
       return (
         <div className="text">
@@ -351,7 +352,10 @@ class ListRoomUser extends React.Component{
   constructor(props){
     super(props);
     this.state = {}
+
   }
+
+
 
   listRoom(){
     return [new RoomUser("text-center","images/customer.png","Giám đốc","manager"),
@@ -368,6 +372,12 @@ class ListRoomUser extends React.Component{
         notifyResult("errorcreateroom");
       }
     })
+  }
+
+  componentDidMount(){
+    this.connect_room.invoke("listroom",result=>{
+      console.log(result)
+    });
   }
 
   render(){
@@ -407,13 +417,92 @@ class ListRoomUserItem extends React.Component{
     )
   }
 }
+
+class ListRoomAdmin extends React.Component{
+  constructor(props){
+    super();
+    this.state = {
+      listRoom: []
+    }
+    interval_room = setInterval(function(){
+      document.getElementById("getRoom").click();
+    },1000);
+  }
+  componentWillMount(){
+    connect_room.on("listroom",result =>{
+      if(typeof a === "string"){
+        alertify.warning(notify("notfoundusername"));
+      }
+      else {
+        this.setState({listRoom: result});
+      }
+    });
+  }
+
+  handleClick(){
+    connect_room.invoke("FetchListRoom",User.UserName);
+  }
+
+  handleSearch(id){
+    console.log(id);
+  }
+  handleAdd(id){
+    console.log(id);
+  }
+
+  handleScreen(id){
+    this.props.handleScreen(id);
+  }
+
+  render(){
+    let list = this.state.listRoom.map((v,k)=>{
+      return <ListRoomAdminItem key={k} room={v} handleScreen={this.handleScreen.bind(this)} />
+    })
+    return(
+      <div>
+        <Search handleSearch={this.handleSearch.bind(this)} handleAdd={this.handleAdd.bind(this)} />
+        <div onClick={this.handleClick.bind(this)} id="getRoom" className="d-none">get room</div>
+        {list}
+      </div>
+    )
+  }
+}
+class ListRoomAdminItem extends React.Component{
+  constructor(props){
+    super();
+  }
+
+  handleScreen(){
+    this.props.handleScreen(this.props.room.RoomId);
+  }
+
+  render(){
+    return(
+      <div className="col-xs-12 room-detail" onClick={this.handleScreen.bind(this)}>
+        <div className="col-xs-2">
+          <img src="images/customer.png" alt="" className="img-rounded center-block img-room"/>
+        </div>
+        <div className="col-xs-8">
+          <a href="#">
+            <p className="name-group">{this.props.room.Name}</p>
+            <p>{this.props.room.NewMessage} (Group: {getTypeString(this.props.room.Type)})</p>
+          </a>
+        </div>
+        <div>
+          <span>{convertTime(this.props.room.Time) || ""}</span>
+        </div>
+      </div>
+    )
+  }
+}
 //End ListRoom
 
 //Start ChatRoom
 class Message{
-  constructor(MessageId=0,Time= new Date(),Content="",UserName=User.UserName,RoomId=localStorage.getItem("roomId")){
+  constructor(MessageId,Time,Content,UserName,RoomId){
+    let now = new Date();
     this.MessageId = MessageId || 0,
-    this.Time = Time || new Date(),
+    this.Time = Time || `${now.getFullYear()}/${now.getMonth()+1}/${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
     this.Content = Content || "",
     this.UserName = UserName || User.UserName,
     this.RoomId = RoomId || localStorage.getItem("roomId")
@@ -422,33 +511,61 @@ class Message{
 class ChatRoom extends React.Component{
   constructor(props){
     super();
+    this.state = {
+      listMessage: [],
+      message: "",
+      members: [],
+      background: "#fff",
+    }
+    this.connect_chat =
+    new signalR.HubConnection(`${host}/signalR/messageHub?authorization=Bearer ${localStorage.getItem('bear')}&roomId=${props.roomId}`);
+    this.connect_chat.start().then((value) => {},(error)=>{
+        if(error.statusCode===401)
+        window.location.href = "/login.html";
+    });
   }
   // set connection to Hub
   componentWillMount(){
-    connect_chat.start();
-    // connect_chat.on('fetchmessagehistory', list =>
-    // {
-    // });
-    connect_chat.on('fetchmessage', result =>
-    {
-        console.log(result);
+    let that = this;
+    let data = {
+      RoomId: this.props.roomId,
+      UserName: User.UserName,
+      Limit:20
+    }
+    Promise.all([ajaxPromise("/api/message","GET",data),
+                 ajaxPromise("/api/room","GET",data)])
+    .then((rs) => {
+      console.log(rs[1][0].item3);
+      that.setState({listMessage: rs[0], members: rs[1],background: rs[1][0].item3});
     })
-    //connect_chat.invoke('FetchHistoryMessage', this.props.roomId, User.UserName,20);
+    this.connect_chat.on('fetchmessage', result =>{
+        that.setState({message: result});
+    });
   }
 
   sendMessage(message){
     let msg = new Message(null,null,message,User.UserName,this.props.roomId);
-     connect_chat.invoke('sendMessage',msg);
+    this.connect_chat.invoke('sendMessage',msg);
+  }
+
+  handleBackMain(){
+    this.props.handleBackMain();
   }
 
   componentDidMount(){
+    document.getElementsByName("message")[0].focus();
+  }
 
+  handleChangeBackgournd(id){
+    this.setState({background: id});
   }
 
   render(){
     return (
       <div>
-          <HeaderChatRoom />
+          <a href="#last" id="golast">a</a>
+          <HeaderChatRoom handleChangeBackgournd={this.handleChangeBackgournd.bind(this)} handleBackMain={this.handleBackMain.bind(this)} members={this.state.members}/>
+          <MessageBox background={this.state.background} message={this.state.message} listMessage={this.state.listMessage} connect_chat={this.connect_chat}/>
           <InputMessageBox sendMessage={this.sendMessage.bind(this)} />
       </div>
     )
@@ -462,27 +579,53 @@ class HeaderChatRoom extends React.Component{
     }
   }
 
+  handleChangeBackgournd(id){
+    this.props.handleChangeBackgournd(id);
+    this.setState({show: !this.state.show});
+  }
+
   showMenu(){
     this.setState({show: !this.state.show});
+    return false;
+  }
+
+  handleBackMain(){
+    this.props.handleBackMain();
+  }
+
+  getNameGroup(members){
+    switch (members.length) {
+      case 1:
+          return <span>Nhóm mới: ${User.item2 || User.item1}</span>;
+      case 2:
+        let user = members.find(w => w.item1!==User.UserName);
+        return <span>{user.item2 || user.item1}</span>;
+      default:
+        return
+        <div>
+          <img src="images/multiple_user.svg" />
+          <span>{members[0].item2 || members[0].item1},..</span>
+        </div>
+    }
   }
 
   render(){
     return (
         <header>
             <div className="button-back">
-                <a href="#" className="display-block">
+                <a href="#" className="display-block" onClick={this.handleBackMain.bind(this)}>
                     <img src="images/back.png" alt="" className="img-rounded center-block"/>
                 </a>
             </div>
             <div className="room-name">
-                <span>Tên nhóm</span>
+                {this.getNameGroup(this.props.members)}
             </div>
             <div className="note">
                 <a href="#" className="display-block" onClick={this.showMenu.bind(this)}>
                     <img src="images/warning.png" alt="" className="img-rounded center-block" width="30px"/>
                 </a>
             </div>
-            <HeaderChatRoomMenu show={this.state.show} />
+            <HeaderChatRoomMenu handleChangeBackgournd={this.handleChangeBackgournd.bind(this)} show={this.state.show} />
         </header>
     )
   }
@@ -492,13 +635,66 @@ class HeaderChatRoomMenu extends React.Component{
     super();
   }
 
+  handleChangeBackgournd(){
+    this.refs.background.click();
+    return false;
+  }
+
+  handleSelectMedia(){
+    let that = this;
+    if(this.refs.background.value){
+      let data;
+      let file = this.refs.background.files[0];
+      var FR= new FileReader();
+      FR.addEventListener("load", function(e) {
+        data = {
+          file: e.target.result,
+          name: file.name,
+          roomId: localStorage.getItem('roomId')
+        };
+      });
+      FR.readAsDataURL(file);
+      var loop = setInterval(function(){
+        if(data){
+          clearInterval(loop);
+          $.ajax({
+              type: "PUT",
+              url: `${host}/api/room` ,
+              data:data,
+              crossDomain: true,
+              headers: {
+                'Authorization': `Bearer ${localStorage.getItem('bear')}`
+              },
+              success: function (data,status,xhr) {
+                  if(data)
+                    that.props.handleChangeBackgournd(data);
+              },
+              error: function (result,status,xhr) {
+                if(xhr==="Unauthorized"){
+                  notifyResult(401);
+                  localStorage.removeItem('bear');
+                  setTimeout(function(){
+                    window.location.href="login.html";
+                  },1000);
+                }
+              }
+          });
+        }
+      },100);
+    }
+  }
+
   render(){
     let show = this.props.show ? "note-box" : "note-box hidden";
     return(
       <div className={show}>
           <input type="file" name="background" id="background" className="hide" />
           <div className="box-item">
+              Xem Website
+          </div>
+          <div className="box-item" onClick={this.handleChangeBackgournd.bind(this)}>
               Thay đổi ảnh nền
+              <input type="file" name="background" id="background" ref="background" className="hidden"  onChange={this.handleSelectMedia.bind(this)}/>
           </div>
           <div className="box-item">
               Mời thêm người vào nhóm
@@ -533,14 +729,66 @@ class InputMessageBox extends React.Component{
       this.sendMessage();
   }
 
+  handleTriggerMedia(e){
+    this.refs.image.click();
+    return false;
+  }
+
+  handleSelectMedia(){
+    let that = this;
+    if(this.refs.image.value){
+      let data;
+      let file = this.refs.image.files[0];
+      var FR= new FileReader();
+      FR.addEventListener("load", function(e) {
+        data = {
+          file: e.target.result,
+          name: file.name
+        };
+      });
+      FR.readAsDataURL(file);
+      var loop = setInterval(function(){
+        if(data){
+          clearInterval(loop);
+          $.ajax({
+              type: "POST",
+              url: `${host}/api/media` ,
+              data:data,
+              crossDomain: true,
+              headers: {
+                'Authorization': `Bearer ${localStorage.getItem('bear')}`
+              },
+              success: function (data,status,xhr) {
+                  that.refs.message.value = data;
+                  that.sendMessage();
+              },
+              error: function (result,status,xhr) {
+                if(xhr==="Unauthorized"){
+                  notifyResult(401);
+                  localStorage.removeItem('bear');
+                  setTimeout(function(){
+                    window.location.href="login.html";
+                  },1000);
+                }
+                console.log(result);
+              }
+          });
+        }
+      },100);
+    }
+  }
+
   render(){
+    let action = `${host}/api/media`;
     return (
       <footer>
           <div className="button-back">
-              <a href="#" className="display-block">
+            <form action={action} method="POST" encType="multipart/form-data" id="postmedia">
+              <a href="#golast" className="display-block" onClick={this.handleTriggerMedia.bind(this)}>
                   <img src="images/media.png" alt="" id="image" className="img-rounded center-block" width="30px"/>
-                  <input type="file" name="image" id="image1" className="hidden"/>
+                  <input type="file" name="images" id="images" ref="image" className="hidden" multiple  onChange={this.handleSelectMedia.bind(this)}/>
               </a>
+            </form>
           </div>
           <div className="input-message">
               <input type="text" name="message" ref="message" onKeyPress={this.enterInput.bind(this)}/>
@@ -553,9 +801,98 @@ class InputMessageBox extends React.Component{
   }
 }
 
+class MessageBox extends React.Component{
+  constructor(props){
+    super();
+    this.listMessage = props.listMessage;
+  }
+
+  componentWillReceiveProps(props){
+    this.listMessage = props.listMessage;
+    if(props.message){
+      this.listMessage.push(
+        {
+          messageId: props.message.MessageId,
+          content: props.message.Content,
+          roomId: props.message.RoomId,
+          time: props.message.Time,
+          userName: props.message.UserName
+        });
+    }
+  }
+
+  componentDidMount(){
+    document.getElementById("golast").click();
+  }
+
+  render(){
+    let background = this.props.background.startsWith("#")
+    ? this.props.background : `url("${host}/${this.props.background}") no-repeat center center fixed`;
+    let list = this.listMessage.map((v,k)=>{
+        return v.userName===User.UserName
+        ? <MyMessage key={k} message={v} isLast={k===this.listMessage.length-1} />
+      : <OtherMessage key={k} message={v} isLast={k===this.listMessage.length-1} />;
+    })
+    return(
+      <div className="list-message" style={{background: background }}>
+        {list}
+      </div>
+    )
+  }
+}
+class MyMessage extends React.Component{
+  componentDidMount(){
+    document.getElementById("golast").click();
+    document.getElementsByName("message")[0].focus();
+  }
+
+  render(){
+    console.log(this.props.message.content);
+    let message = this.props.message.content.startsWith(`uploads/`)
+                ? <img src={host+"\\"+this.props.message.content} style={{ maxWidth: window.innerWidth-100 }} />
+              : this.props.message.content;
+    return(
+      <div>
+        <div className="detail-message-right clearfix" id={this.props.isLast ? "last" : "top"}>
+            <div className="owner">
+              <span>{message}</span>
+              <br/>
+              <p>{convertTime(this.props.message.time)}</p>
+            </div>
+        </div>
+        <div className="clearfix"></div>
+      </div>
+    )
+  }
+}
+class OtherMessage extends React.Component{
+  componentDidMount(){
+    document.getElementById("golast").click();
+    document.getElementsByName("message")[0].focus();
+  }
+
+  render(){
+    let message = this.props.message.content.startsWith(`uploads/`)
+                ? <img src={host+"\\"+this.props.message.content} style={{ maxWidth: window.innerWidth-100 }} />
+              : this.props.message.content;
+    return(
+      <div>
+        <div className="detail-message-left" id={this.props.isLast ? "last" : "top"}  >
+            <div className="other">
+              <span>{message}</span>
+              <br/>
+              <p>{convertTime(this.props.message.time)}</p>
+            </div>
+        </div>
+        <div className="clearfix"></div>
+      </div>
+    )
+  }
+}
 //End ChatRoom
 
 ReactDOM.render(
     <App />,
     document.getElementById('root')
 );
+document.getElementsByName("message")[0].focus();

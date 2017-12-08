@@ -43,12 +43,15 @@ function notify(obj){
       return localStorage.getItem('language') === "vi" ? "Dữ liệu không đúng định dạng" : "Invalid data";
     case "errorcreateroom":
       return localStorage.getItem('language') === "vi" ? "Xảy ra lỗi khi tạo phòng" : "Create chat room faild.";
+    case "notfoudnusername":
+      return localStorage.getItem('language') === "vi" ? "Không tìm thấy UserName" : "Not found UserName";
+    case "errorImage":
+      return localStorage.getItem('language') === "vi" ? "Ảnh không đúng định dạng hoặc quá lớn" : "Image is incorrect or too large.";
     default:
       return localStorage.getItem('language') === "vi" ? "Các trường không được bỏ trống" : "Fields is not empty";
   }
 }
 function notifyResult(obj){
-  console.log(obj);
   switch(obj.item1){
     case 200:
       alertify.success(notify(200));
@@ -109,11 +112,43 @@ function toggleMenu(){
 }
 function getTypeString(a){
     switch (a) {
-      case 0: return "Hỗ trợ chung";
-      case 1: return "Kỹ thuật";
-      default: return "Mua bán";
+      case 1:
+      case "manager":
+        return "Giám đốc";
+      case 2:
+      case "technical":
+        return "Kỹ thuật";
+      case 3:
+      case "advisory":
+        return "Tư vấn";
+      default:
+        return "";
     }
 }
+function convertTime(a){
+  //2017-12-08T05:18:16.627Z
+  if(!a) return "";
+  let time = new Date(a);
+  return IsDayNow(time) ? `${formatTime(time.getHours())}:${formatTime(time.getMinutes())}`
+      : `${formatTime(time.getHours())}:${formatTime(time.getMinutes())} ${formatTime(time.getDate())}-${formatTime(time.getMonth())}-${time.getFullYear()}`;
+}
+function formatTime(a) {
+  return a<10 ? `0${a}` : a;
+}
+function IsDayNow(a){
+  let b = new Date();
+  return a.getFullYear() === b.getFullYear()
+      && a.getMonth() === b.getMonth()
+      && a.getDate() === b.getDate();
+}
+File.prototype.toBase64 = function(callback) {
+    var FR= new FileReader();
+    FR.addEventListener("load", function(e) {
+      // e.target.result
+      callback(e.target.result);
+    });
+    FR.readAsDataURL(this);
+};
 $(document).ready(function() {
   //toggleMenu();
 });

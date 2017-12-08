@@ -26,10 +26,7 @@ function login(){
     let decode = jwt_decode(a);
     let user = Object.values(decode);
     localStorage.setItem('bear',a);
-    if(user[5]=="4")
-      window.location.href = "index.html"; //user
-    else
-      window.location.href = "index2.html"; //manager
+    window.location.href = "index.html";
   })
 }
 
