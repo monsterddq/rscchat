@@ -26,8 +26,7 @@ namespace backend.Repository
             return db.UseRooms
                  .Include(w => w.User)
                  .Include(w => w.Room)
-                 .Where(w => w.RoomId == key.RoomId && w.UserName.Equals(key.UserName))
-                 .SingleOrDefault();
+                 .SingleOrDefault(w => w.RoomId == key.RoomId && w.UserName.Equals(key.UserName));
         }
 
         public override List<UserRoom> FindBy(Expression<Func<UserRoom, bool>> predicate)

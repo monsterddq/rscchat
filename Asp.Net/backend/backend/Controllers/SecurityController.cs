@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using backend.Service;
 using backend.Entity;
@@ -13,11 +10,11 @@ namespace backend.Controllers
     [Route("api/[controller]")]
     public class SecurityController : BaseController
     {
-        private SecurityService service;
+        private readonly SecurityService _service;
 
         public SecurityController()
         {
-            service = new SecurityService();
+            _service = new SecurityService();
         }
 
         [HttpPost]
@@ -26,7 +23,7 @@ namespace backend.Controllers
         {
             try
             {
-                    return Json(service.Login(user));
+                return Json(_service.Login(user));
             }
             catch (Exception e)
             {

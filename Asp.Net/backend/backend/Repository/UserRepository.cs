@@ -24,6 +24,7 @@ namespace backend.Repository
         public override User Find(string key)
         {
             return db.Users
+                 .AsNoTracking()
                  .Include(w => w.UserRoom)
                  .SingleOrDefault(w => w.UserName.Equals(key));
         }

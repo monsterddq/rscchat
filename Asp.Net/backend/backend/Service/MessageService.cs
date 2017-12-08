@@ -59,7 +59,7 @@ namespace backend.Service
             var room = roomRepository.Find(roomId);
             if (room == null)
                 throw new Exception("Can't find Room by RoomId");
-            return messageRepository.LimitedWithGetAll(Constant.PageStart, limit);
+            return messageRepository.LimitedWithGetAllByRoomId(roomId,Constant.PageStart, limit).OrderBy(w => w.Time).ToList();
         }
     }
 }

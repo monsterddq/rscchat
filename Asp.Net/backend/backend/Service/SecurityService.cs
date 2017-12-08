@@ -10,20 +10,20 @@ namespace backend.Service
 {
     public class SecurityService
     {
-        private UserRepository repository;
-        private UserService userService;
+        private readonly UserRepository _repository;
+        private readonly UserService _userService;
         public SecurityService()
         {
-            repository = new UserRepository();
-            userService = new UserService();
+            _repository = new UserRepository();
+            _userService = new UserService();
         }
 
         public string Login(User user)
         {
-             var u = repository.Find(user.UserName);
+             var u = _repository.Find(user.UserName);
             if (u == null)
                 throw new Exception("Can't find User by UserName");
-            if (!userService.CheckPassword(user.Password, u))                                   
+            if (!_userService.CheckPassword(user.Password, u))                                   
                 throw new Exception("Password is not match");
             return GenerateToken(u.UserName, u.FullName, u.Phone, u.Email, u.Role.ToString(), u.Avatar);
         }

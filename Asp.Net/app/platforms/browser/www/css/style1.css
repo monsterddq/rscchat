@@ -1,12 +1,11 @@
-body, html {
+body, html,
+#root > div > div,
+.screen, .list-room{
     height: 100%;
-
 }
-
 .body{
   background: url('../images/login.jpg')  no-repeat center center fixed;
 }
-
 .card-container.card {
     max-width: 350px;
     padding: 20px 20px;
@@ -159,17 +158,21 @@ strong{
   color:#000;
 }
 .img-room{
-  width: 50px;
+  width: 35px;
   border-radius: 50px;
 }
 .name-group{
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   margin-bottom: 0px;
   color:#333;
 }
 .room-detail{
   padding: 5px 0px;
+  border-bottom: 1px solid #e2dfdf;
+}
+.room-detail div:nth-child(3) span{
+  font-size: 11px;
 }
 .sidebar{
   width: 200px;
@@ -232,7 +235,7 @@ header{
   line-height: 50px;
   font-size: 20px;
   font-weight: bold;
-  color: #000;
+  color: #fff;
 }
 footer{
   background: #fff;
@@ -247,12 +250,13 @@ footer{
   height:40px;
 }
 input[name=message]{
-    width: 90%;
-    height: 40px;
-    padding: 5px 20px;
+    width: calc(100% - 100px);
+    height: 35px;
+    padding: 3px 10px;
     border-radius: 50px;
     border: 1px solid #bbbbbb;
     color: #000;
+    font-size: 16px;
 }
 input[name=message]:focus{
   outline-width: 0px;
@@ -261,24 +265,39 @@ input[name=message]:focus{
   float: right;
   line-height: 50px;
   width: 50px;
+  min-width: 50px;
   height: 50px;
   padding-top:10px;
 }
 .list-message{
   padding: 50px 10px;
+  background-size: contain!important;
+  height: 100%;
+}
+.list-message p{
+  margin-bottom: 0px;
+  font-size:10px;
 }
 .other, .owner{
     border: 1px solid #bbbbbb;
-    border-radius: 50px;
-    padding: 5px 20px;
+    border-radius: 5px;
+    padding: 5px 10px;
     display: inline-block;
     margin: 5px 0px;
+    font-size: 14px;
 }
-.detail-message-right{
+.other, .list-room,.room-detail, #top-content{
+  background: #fff;
+}
+.owner,.owner p{
+  background: #c6eafa;
+  text-align: right;
+}
+.detail-message-right, .info button.btn.change-info{
   float: right;
 }
-.detail-message-left, .detail-message-right{
-  display: flex;
+.detail-message-left{
+  float: left;
 }
 .search-icon{
     display: inline-block;
@@ -291,6 +310,10 @@ input[name=message]:focus{
 .search-textbox{
   display: inline-block;
   width: calc(100% - 80px);
+}
+.search-contact-textbox{
+  display: inline-block;
+  width: calc(100% - 35px);
 }
 .detail-image{
   width: 100px;
@@ -310,4 +333,170 @@ input[name=message]:focus{
     padding-top: 5px;
     border-top: 1px solid #bbb;
     background: #fff;
+}
+.setting{
+  padding: 5px;
+  margin: 5px 0px;;
+  background: #fff;
+  display: flex;
+  border-radius: 5px;
+}
+.setting h3{
+  font-size: 15px;
+  line-height: 30px;
+}
+iframe{
+  border:none;
+  width: 100%;
+}
+.note{
+  position: fixed;
+  top:10px;
+  right:10px;
+}
+.note-box{
+  float: right;
+background: #ece7e7;
+padding: 10px;
+}
+
+.note-box .box-item:hover {
+    background: #128de6;
+    color: #fff;
+}
+
+.note-box .box-item {
+    padding: 5px;
+    cursor: pointer;
+}
+#golast{
+  display: none;
+}
+.d-none{
+  display: none;
+}
+.ajs-close{
+  float:right;
+}
+.chat-website{
+  z-index: 100;
+  width: 80%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: left 0.5s;
+}
+.chat-blur{
+  -webkit-filter: blur(3px);
+ -moz-filter: blur(3px);
+ -o-filter: blur(3px);
+ -ms-filter: blur(3px);
+ filter: blur(3px);
+ width: 100%;
+ height: 100%;
+ z-index: 50;
+}
+.ajs-button{
+  background: #1e88e5;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+}
+.ajs-input{
+  border:1px solid #d6cece;
+  border-radius: 4px;
+  outline: none;
+  padding: 5px;
+  width: 100%;
+  margin: 5px 0px 0px 0px;
+}
+.ajs-input:active{
+  outline: none;
+}
+.chat-block,#root > div,#root{
+  height: 100%;
+}
+.setting .text-center{
+  width: 20%
+}
+.setting .text-left{
+  width: 80%;
+}
+.info{
+    background: #fff;
+    border-radius: 10px;
+    margin: 10px 0px;
+    padding: 10px;
+    color: #333;
+    font-size: 14px;
+}
+.info .table tr td:first-child{
+  color: #7b7474;
+}
+.info .table tr{
+  border-bottom: 1px solid #e2dfdf;
+}
+.info .table tr td{
+  padding: 5px;
+}
+.info-avatar{
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+}
+.info-avatar img{
+  width: 100px;
+}
+.img{
+  width:  100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow:  hidden;
+  margin:  auto;
+  position: relative;
+}
+.img span{
+    position: absolute;
+    color: #f1f1f1;
+    background: #000000;
+    bottom: 0;
+    opacity: 0.5;
+    left: 0;
+    font-size: 12px;
+    width: 100%;
+}
+
+.setting-block{
+  padding: 0px 10px;
+}
+.table tr input{
+    border: none;
+    border-bottom: 1px solid #a7a2a2;
+    max-width: 130px;
+}
+.table tr input:hover,.table tr input:active{
+  border:none;
+  outline: none;
+  border-bottom: 1px solid #a7a2a2;
+}
+.contact-detail{
+  background: #fff!important;
+  padding: 10px;
+  border-bottom: 1px solid #e2dfdf;
+}
+.list-item{
+  padding-bottom: 50px;
+  padding-top:56px;
+}
+.list-item.no-padding-top{
+  padding-bottom: 50px;
+  padding-top: 0px;
+}
+#top-content{
+    position:  fixed;
+    top: 0;
+    left:  0;
+    z-index:  1;
+    width: 100%;
 }

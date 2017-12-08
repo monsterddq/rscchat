@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using backend.Repository;
+using Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv.Internal.Networking;
 using static backend.Utilities.Utility;
 using static backend.Utilities.Constant;
 
@@ -12,10 +13,10 @@ namespace backend.Service
 {
     public class UserService : CommonServiceClass<User, string>, ICommonService<User, string>
     {
-        private UserRepository repository;
+        private readonly UserRepository _repository;
         public UserService()
         {
-            repository = new UserRepository();
+            _repository = new UserRepository();
         }
         public override User Add(User obj)
         {
@@ -23,52 +24,58 @@ namespace backend.Service
                 throw new Exception("UserName or Phone is duplicate.");
             obj.Role = 4;
             obj.Password = Sha512Hash(obj.Password);
-            repository.Add(obj);
+            _repository.Add(obj);
             return obj;
         }
 
         public override List<User> FindBy(Expression<Func<User, bool>> predicate)
         {
-            return repository.FindBy(predicate).ToList();
+            return _repository.FindBy(predicate).ToList();
         }
 
         public override User FindOne(string key)
         {
-            return repository.Find(key);
+            return _repository.Find(key);
         }
 
         public override List<User> GetAll()
         {
-            return repository.GetAll();
+            return _repository.GetAll();
         }
 
         public override User Modify(string key, User obj)
         {
-            var user = repository.Find(key);
+            var user = _repository.Find(key);
             if (user == null)
                 throw new Exception("Can't find User by key");
-            repository.Modify(obj);
+            _repository.Modify(obj);
             return obj;
         }
 
         public override void Remove(string key)
         {
-            var user = repository.Find(key);
+            var user = _repository.Find(key);
             if (user == null)
                 throw new Exception("Can't find User by key");
-            repository.Remove(user);
+            _repository.Remove(user);
         }
 
         public bool CheckPassword(string password, User user)
             => Sha512Hash(password).Equals(user.Password);
 
         private bool IsUniqueUserName(User user)
-            => repository.Find(user.UserName) == null;
+            => _repository.Find(user.UserName) == null;
 
         private bool IsUniquePhone(User user)
-            => repository.FindBy(w => w.Phone.Equals(user.Phone)).Count == 0;
+            => _repository.FindBy(w => w.Phone.Equals(user.Phone)).Count == 0;
 
         public bool IsExistsUserByUsername(string username)
-            => repository.Find(username) != null;
+            => _repository.Find(username) != null;
+
+        public bool HasUserByEmail(string email)
+            => _repository.FindBy(w => w.Email.Equals(email)).Count > 0;
+        
+        public bool HasUserByPhone(string phone)
+            => _repository.FindBy(w => w.Phone.Equals(phone)).Count > 0;
     }
 }

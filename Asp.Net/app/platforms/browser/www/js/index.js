@@ -4,17 +4,22 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent();
     },
-
-    // Update DOM on a Received Event
     receivedEvent: function() {
-        console.log('Received Event: Ready');
+       var duration = 0.5, // animation time in seconds
+            direction = "right";
+       nativetransitions.flip(duration, direction);
+       var options = new ContactFindOptions();
+       options.multiple = true;
+       navigator.contacts.find(['displayName','phoneNumbers'],onSuccess,onError,options);
+       function onSuccess(contacts) {
+         localStorage.setItem('contacts',JSON.stringify(contacts));
+       }
+       function onError(contactError) {
+          alert('onError!');
+       }
     }
 };
 

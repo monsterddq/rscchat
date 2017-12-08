@@ -1,0 +1,1050 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7c795b92-af1c-42aa-b36e-7739cf0e1578" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/Config/Errors.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/Config/ResultCodes.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/DTO/ChangePassword.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/DTO/Result.cs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/backend/Middleware/JWTSignalRMiddlewareExtensions.cs" />
+      <change beforePath="$PROJECT_DIR$/../app/config.xml" afterPath="$PROJECT_DIR$/../app/config.xml" />
+      <change beforePath="$PROJECT_DIR$/../app/package-lock.json" afterPath="$PROJECT_DIR$/../app/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/../app/package.json" afterPath="$PROJECT_DIR$/../app/package.json" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/browser.json" afterPath="$PROJECT_DIR$/../app/platforms/browser/browser.json" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/config.xml" afterPath="$PROJECT_DIR$/../app/platforms/browser/config.xml" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/platform_www/cordova_plugins.js" afterPath="$PROJECT_DIR$/../app/platforms/browser/platform_www/cordova_plugins.js" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/config.xml" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/config.xml" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/cordova_plugins.js" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/cordova_plugins.js" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/css/alertify.rtl.min.css" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/css/alertify.rtl.min.css" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/css/bootstrap-responsive.css" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/css/bootstrap-responsive.css" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/css/bootstrap.css" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/css/bootstrap.css" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/css/cordova_plugins.js" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/css/cordova_plugins.js" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/css/style1.css" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/css/style1.css" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/images/60740.svg" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/images/60740.svg" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/images/back.png" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/images/back.png" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/images/search.png" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/images/search.png" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/index.html" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/index.html" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/js/alertify.min.js" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/js/alertify.min.js" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/js/cordova_plugins.js" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/js/cordova_plugins.js" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/js/index.js" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/js/index.js" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/js/index.jsx" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/js/index.jsx" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/js/jquery.signalR-2.2.2.min.js" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/js/jquery.signalR-2.2.2.min.js" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/js/login.js" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/js/login.js" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/js/register.js" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/js/register.js" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/js/script.js" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/js/script.js" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/js/signalr-client-1.0.0-alpha2-final.min.js" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/js/signalr-client-1.0.0-alpha2-final.min.js" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/login.html" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/login.html" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/browser/www/manifest.json" afterPath="$PROJECT_DIR$/../app/platforms/browser/www/manifest.json" />
+      <change beforePath="$PROJECT_DIR$/../app/platforms/platforms.json" afterPath="$PROJECT_DIR$/../app/platforms/platforms.json" />
+      <change beforePath="$PROJECT_DIR$/../app/plugins/browser.json" afterPath="$PROJECT_DIR$/../app/plugins/browser.json" />
+      <change beforePath="$PROJECT_DIR$/../app/plugins/fetch.json" afterPath="$PROJECT_DIR$/../app/plugins/fetch.json" />
+      <change beforePath="$PROJECT_DIR$/../app/res/icon/android/icon-36-ldpi.png" afterPath="$PROJECT_DIR$/../app/res/icon/android/icon-36-ldpi.png" />
+      <change beforePath="$PROJECT_DIR$/../app/res/icon/android/icon-48-mdpi.png" afterPath="$PROJECT_DIR$/../app/res/icon/android/icon-48-mdpi.png" />
+      <change beforePath="$PROJECT_DIR$/../app/res/icon/android/icon-72-hdpi.png" afterPath="$PROJECT_DIR$/../app/res/icon/android/icon-72-hdpi.png" />
+      <change beforePath="$PROJECT_DIR$/../app/res/icon/android/icon-96-xhdpi.png" afterPath="$PROJECT_DIR$/../app/res/icon/android/icon-96-xhdpi.png" />
+      <change beforePath="$PROJECT_DIR$/../app/res/screen/android/screen-hdpi-landscape.png" afterPath="$PROJECT_DIR$/../app/res/screen/android/screen-hdpi-landscape.png" />
+      <change beforePath="$PROJECT_DIR$/../app/res/screen/android/screen-hdpi-portrait.png" afterPath="$PROJECT_DIR$/../app/res/screen/android/screen-hdpi-portrait.png" />
+      <change beforePath="$PROJECT_DIR$/../app/res/screen/android/screen-ldpi-landscape.png" afterPath="$PROJECT_DIR$/../app/res/screen/android/screen-ldpi-landscape.png" />
+      <change beforePath="$PROJECT_DIR$/../app/res/screen/android/screen-ldpi-portrait.png" afterPath="$PROJECT_DIR$/../app/res/screen/android/screen-ldpi-portrait.png" />
+      <change beforePath="$PROJECT_DIR$/../app/res/screen/android/screen-mdpi-portrait.png" afterPath="$PROJECT_DIR$/../app/res/screen/android/screen-mdpi-portrait.png" />
+      <change beforePath="$PROJECT_DIR$/../app/res/screen/android/screen-xhdpi-portrait.png" afterPath="$PROJECT_DIR$/../app/res/screen/android/screen-xhdpi-portrait.png" />
+      <change beforePath="$PROJECT_DIR$/../app/www/css/alertify.rtl.min.css" afterPath="$PROJECT_DIR$/../app/www/css/alertify.rtl.min.css" />
+      <change beforePath="$PROJECT_DIR$/../app/www/css/bootstrap-responsive.css" afterPath="$PROJECT_DIR$/../app/www/css/bootstrap-responsive.css" />
+      <change beforePath="$PROJECT_DIR$/../app/www/css/bootstrap.css" afterPath="$PROJECT_DIR$/../app/www/css/bootstrap.css" />
+      <change beforePath="$PROJECT_DIR$/../app/www/css/style1.css" afterPath="$PROJECT_DIR$/../app/www/css/style1.css" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/60740.svg" afterPath="$PROJECT_DIR$/../app/www/images/60740.svg" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/contact.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/customer-cbs.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/customer.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/home.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/icon1.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/icon3.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/logout.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/logout.svg" afterPath="$PROJECT_DIR$/../app/www/images/logout.svg" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/media.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/menu4.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/search.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/send.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/setting.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/user.svg" afterPath="$PROJECT_DIR$/../app/www/images/user.svg" />
+      <change beforePath="$PROJECT_DIR$/../app/www/images/warning.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../app/www/index.html" afterPath="$PROJECT_DIR$/../app/www/index.html" />
+      <change beforePath="$PROJECT_DIR$/../app/www/js/index.js" afterPath="$PROJECT_DIR$/../app/www/js/index.js" />
+      <change beforePath="$PROJECT_DIR$/../app/www/js/index.jsx" afterPath="$PROJECT_DIR$/../app/www/js/index.jsx" />
+      <change beforePath="$PROJECT_DIR$/../app/www/js/login.js" afterPath="$PROJECT_DIR$/../app/www/js/login.js" />
+      <change beforePath="$PROJECT_DIR$/../app/www/js/script.js" afterPath="$PROJECT_DIR$/../app/www/js/script.js" />
+      <change beforePath="$PROJECT_DIR$/../app/www/js/signalr-client.js" afterPath="$PROJECT_DIR$/../app/www/js/signalr-client.js" />
+      <change beforePath="$PROJECT_DIR$/../app/www/login.html" afterPath="$PROJECT_DIR$/../app/www/login.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.backend/.idea/contentModel.xml" afterPath="$PROJECT_DIR$/.idea/.idea.backend/.idea/contentModel.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.backend/.idea/deployment.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.backend/.idea/webServers.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.backend/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.backend/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/backend/Controllers/BaseController.cs" afterPath="$PROJECT_DIR$/backend/Controllers/BaseController.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Controllers/MessagesController.cs" afterPath="$PROJECT_DIR$/backend/Controllers/MessagesController.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Controllers/RoomController.cs" afterPath="$PROJECT_DIR$/backend/Controllers/RoomController.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Controllers/SecurityController.cs" afterPath="$PROJECT_DIR$/backend/Controllers/SecurityController.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Controllers/UserController.cs" afterPath="$PROJECT_DIR$/backend/Controllers/UserController.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Controllers/ValuesController.cs" afterPath="$PROJECT_DIR$/backend/Controllers/ValuesController.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Entity/Room.cs" afterPath="$PROJECT_DIR$/backend/Entity/Room.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Entity/User.cs" afterPath="$PROJECT_DIR$/backend/Entity/User.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Entity/UserRoom.cs" afterPath="$PROJECT_DIR$/backend/Entity/UserRoom.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Hubs/MessageHub.cs" afterPath="$PROJECT_DIR$/backend/Hubs/MessageHub.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Hubs/RoomHub.cs" afterPath="$PROJECT_DIR$/backend/Hubs/RoomHub.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Middleware/JWTSignalRMiddleware.cs" afterPath="$PROJECT_DIR$/backend/Middleware/JWTSignalRMiddleware.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Repository/MessageRepository.cs" afterPath="$PROJECT_DIR$/backend/Repository/MessageRepository.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Repository/UserRepository.cs" afterPath="$PROJECT_DIR$/backend/Repository/UserRepository.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Repository/UserRoomRepository.cs" afterPath="$PROJECT_DIR$/backend/Repository/UserRoomRepository.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Service/MessageService.cs" afterPath="$PROJECT_DIR$/backend/Service/MessageService.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Service/RoomService.cs" afterPath="$PROJECT_DIR$/backend/Service/RoomService.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Service/SecurityService.cs" afterPath="$PROJECT_DIR$/backend/Service/SecurityService.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Service/UserService.cs" afterPath="$PROJECT_DIR$/backend/Service/UserService.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Startup.cs" afterPath="$PROJECT_DIR$/backend/Startup.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Utilities/Constant.cs" afterPath="$PROJECT_DIR$/backend/Utilities/Constant.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/Utilities/Utility.cs" afterPath="$PROJECT_DIR$/backend/Utilities/Utility.cs" />
+      <change beforePath="$PROJECT_DIR$/backend/backend.csproj" afterPath="$PROJECT_DIR$/backend/backend.csproj" />
+      <change beforePath="$PROJECT_DIR$/backend/bin/Debug/netcoreapp2.0/backend.deps.json" afterPath="$PROJECT_DIR$/backend/bin/Debug/netcoreapp2.0/backend.deps.json" />
+      <change beforePath="$PROJECT_DIR$/backend/bin/Debug/netcoreapp2.0/backend.dll" afterPath="$PROJECT_DIR$/backend/bin/Debug/netcoreapp2.0/backend.dll" />
+      <change beforePath="$PROJECT_DIR$/backend/bin/Debug/netcoreapp2.0/backend.pdb" afterPath="$PROJECT_DIR$/backend/bin/Debug/netcoreapp2.0/backend.pdb" />
+      <change beforePath="$PROJECT_DIR$/backend/chat.db" afterPath="$PROJECT_DIR$/backend/chat.db" />
+      <change beforePath="$PROJECT_DIR$/backend/obj/Debug/netcoreapp2.0/backend.csproj.CoreCompileInputs.cache" afterPath="$PROJECT_DIR$/backend/obj/Debug/netcoreapp2.0/backend.csproj.CoreCompileInputs.cache" />
+      <change beforePath="$PROJECT_DIR$/backend/obj/Debug/netcoreapp2.0/backend.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/backend/obj/Debug/netcoreapp2.0/backend.csprojResolveAssemblyReference.cache" />
+      <change beforePath="$PROJECT_DIR$/backend/obj/Debug/netcoreapp2.0/backend.dll" afterPath="$PROJECT_DIR$/backend/obj/Debug/netcoreapp2.0/backend.dll" />
+      <change beforePath="$PROJECT_DIR$/backend/obj/Debug/netcoreapp2.0/backend.pdb" afterPath="$PROJECT_DIR$/backend/obj/Debug/netcoreapp2.0/backend.pdb" />
+      <change beforePath="$PROJECT_DIR$/backend/obj/backend.csproj.nuget.cache" afterPath="$PROJECT_DIR$/backend/obj/backend.csproj.nuget.cache" />
+      <change beforePath="$PROJECT_DIR$/backend/obj/project.assets.json" afterPath="$PROJECT_DIR$/backend/obj/project.assets.json" />
+      <change beforePath="$PROJECT_DIR$/backend/obj/project.packagespec.json" afterPath="$PROJECT_DIR$/backend/obj/project.packagespec.json" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="D:\.NET Core\rscchat\Asp.Net\backend\exportToHTML" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Constant.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/Utilities/Constant.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding>
+                <marker date="1515037379458" expanded="false" signature="6:96" ph="..." />
+                <marker date="1515037379458" expanded="true" signature="125:1136" ph="{...}" />
+                <marker date="1515037379458" expanded="true" signature="160:1134" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>RoomH</find>
+      <find>Get(</find>
+      <find>Room</find>
+      <find>Compare</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/backend/Utilities/Constant.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Middleware/JWTSignalRMiddleware.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Repository/UserRoomRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Repository/UserRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Repository/MessageRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/DTO/Result.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Controllers/ValuesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Controllers/SecurityController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Config/Errors.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Controllers/BaseController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Controllers/UserController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2603C9C8-DD69-4A3E-883D-B34FC012F771/19/84384bea/ConsoleLoggerExtensions.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/backend/Middleware/JWTSignalRMiddlewareExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Config/ResultCodes.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A8F53157-BC3F-43A4-B175-4437A933078F/19/98d587c0/ILoggerFactory.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/backend/DTO/ChangePassword.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6982C37D-6BC4-4C6E-8D9A-80C4EC1D09A3/db/59a0e893/List`1.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6982C37D-6BC4-4C6E-8D9A-80C4EC1D09A3/4a/005d5916/String.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/backend/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/DTO/RoomDTO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/DTO/RequestHistoryMessage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Controllers/MessagesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Controllers/RoomController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Entity/Room.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Views/Shared/_ValidationScriptsPartial.cshtml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Entity/UserRoom.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Hubs/MessageHub.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Hubs/RoomHub.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Service/RoomService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Utilities/Utility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Entity/User.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Service/MessageService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Service/SecurityService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Service/UserService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Service/ICommonService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/backend/Service/UserRoomService.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/backend/DTO/RequestHistoryMessage.cs" />
+        <option value="$PROJECT_DIR$/backend/Repository/UserRoomRepository.cs" />
+        <option value="$PROJECT_DIR$/backend/DTO/RoomDTO.cs" />
+        <option value="$PROJECT_DIR$/backend/Entity/Room.cs" />
+        <option value="$PROJECT_DIR$/backend/Entity/UserRoom.cs" />
+        <option value="$PROJECT_DIR$/backend/Service/RoomService.cs" />
+        <option value="$PROJECT_DIR$/backend/Controllers/MessagesController.cs" />
+        <option value="$PROJECT_DIR$/backend/Service/MessageService.cs" />
+        <option value="$PROJECT_DIR$/backend/Repository/MessageRepository.cs" />
+        <option value="$PROJECT_DIR$/backend/Controllers/SecurityController.cs" />
+        <option value="$PROJECT_DIR$/backend/Service/SecurityService.cs" />
+        <option value="$PROJECT_DIR$/backend/Service/UserService.cs" />
+        <option value="$PROJECT_DIR$/backend/Config/Result.cs" />
+        <option value="$PROJECT_DIR$/backend/Config/Error.cs" />
+        <option value="$PROJECT_DIR$/backend/Config/Enum1.cs" />
+        <option value="$PROJECT_DIR$/backend/DTO/Result.cs" />
+        <option value="$PROJECT_DIR$/backend/Controllers/BaseController.cs" />
+        <option value="$PROJECT_DIR$/backend/Repository/UserRepository.cs" />
+        <option value="$PROJECT_DIR$/backend/Entity/User.cs" />
+        <option value="$PROJECT_DIR$/backend/Utilities/Utility.cs" />
+        <option value="$PROJECT_DIR$/backend/Startup.cs" />
+        <option value="$PROJECT_DIR$/backend/DTO/ChangePassword.cs" />
+        <option value="$PROJECT_DIR$/backend/Config/ResultCodes.cs" />
+        <option value="$PROJECT_DIR$/backend/Config/Errors.cs" />
+        <option value="$PROJECT_DIR$/backend/Controllers/UserController.cs" />
+        <option value="$PROJECT_DIR$/backend/Controllers/ValuesController.cs" />
+        <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2603C9C8-DD69-4A3E-883D-B34FC012F771/19/84384bea/ConsoleLoggerExtensions.cs" />
+        <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A8F53157-BC3F-43A4-B175-4437A933078F/19/98d587c0/ILoggerFactory.cs" />
+        <option value="$PROJECT_DIR$/backend/Hubs/RoomHub.cs" />
+        <option value="$PROJECT_DIR$/backend/Hubs/MessageHub.cs" />
+        <option value="$PROJECT_DIR$/backend/Controllers/RoomController.cs" />
+        <option value="$PROJECT_DIR$/backend/Utilities/Constant.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1346" />
+    <option name="height" value="698" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Buildout</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Extensions" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
+            </path>
+            <path>
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Extensions" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
+              <item name="com.intellij.database" type="61db50fb:ScratchProjectViewPane$MyPsiNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="backend (1 project)" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="backend (1 project)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="backend" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="RiderNuGetCacheManager.AutoClear.global-packages" value="2" />
+    <property name="RiderNuGetCacheManager.AutoClear.http-cache" value="2" />
+    <property name="RiderNuGetCacheManager.AutoClear.packages-cache" value="1" />
+    <property name="RiderNuGetCacheManager.AutoClear.temp" value="1" />
+    <property name="SearchEverywhereHistoryKey" value="Uti&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Utilities/Utility.cs&#10;RoomHub&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Hubs/RoomHub.cs&#10;U&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Utilities/Utility.cs&#10;COn&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Utilities/Constant.cs&#10;Resul&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Config/ResultCodes.cs&#10;Error&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Config/Errors.cs&#10;UserCOn&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Controllers/UserController.cs&#10;User&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Controllers/UserController.cs&#10;Roo&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Controllers/RoomController.cs&#10;UserCont&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Controllers/UserController.cs&#10;Room&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Controllers/RoomController.cs&#10;Hub&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Hubs/MessageHub.cs&#10;RoomContr&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Controllers/RoomController.cs&#10;Message&#9;null&#9;null&#10;MEssage&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Controllers/MessagesController.cs&#10;hub&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Hubs/RoomHub.cs&#10;Mess&#9;null&#9;null&#10;UserRoom&#9;null&#9;null&#10;Room.cs&#9;FILE&#9;file://D:/.NET Core/rscchat/Asp.Net/backend/backend/Entity/Room.cs" />
+    <property name="last_opened_file_path" value="D:/ASP.NET Framework MVC/VuGiaDinh/vgd/vgd.sln" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/backend/bin/Debug/netcoreapp2.0/backend.dll" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <envs>
+        <env name="ASPNETCORE_ENVIRONMENT" value="Development" />
+        <env name="ASPNETCORE_URLS" value="http://localhost:5000" />
+      </envs>
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/backend/backend.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value=".NETCoreApp,Version=v2.0" />
+      <browser url="http://localhost:5000" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c795b92-af1c-42aa-b36e-7739cf0e1578" name="Default" comment="" />
+      <created>1514516334273</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1514516334273</updated>
+      <workItem from="1514516337533" duration="1119000" />
+      <workItem from="1514517918528" duration="452000" />
+      <workItem from="1514518501335" duration="17652000" />
+      <workItem from="1514602616044" duration="16294000" />
+      <workItem from="1514813674470" duration="20000" />
+      <workItem from="1514859974999" duration="140000" />
+      <workItem from="1514888620748" duration="6452000" />
+      <workItem from="1514945816856" duration="10872000" />
+      <workItem from="1515032767007" duration="1926000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="54927000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.49622643" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5037879" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.49621212" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.49621212" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.49242425" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16111952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34142396" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/backend/Controllers/UserController.cs</url>
+          <line>80</line>
+          <properties documentPath="$PROJECT_DIR$/backend/Controllers/UserController.cs">
+            <startOffsets>
+              <startOffset value="2716" />
+            </startOffsets>
+            <endOffsets>
+              <endOffset value="2739" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="25" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/backend/appsettings.Development.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Entity/UserRoom.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Entity/Room.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Repository/UserRoomRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6982C37D-6BC4-4C6E-8D9A-80C4EC1D09A3/b5/9ee72a66/AsyncTaskMethodBuilder.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="59" column="8" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6982C37D-6BC4-4C6E-8D9A-80C4EC1D09A3/21/c3552f4d/TaskAwaiter.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="60" column="6" lean-forward="false" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7469EA46-1AEA-47E2-BA3B-AAD4E0506E84/b9/e20ea03c/ControllerActionInvoker.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="187" column="7" lean-forward="true" selection-start-line="187" selection-start-column="7" selection-end-line="187" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Service/RoomService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/DTO/RequestHistoryMessage.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Service/UserRoomService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/DTO/RoomDTO.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Service/MessageService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="61" column="62" lean-forward="false" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/787731CC-AF9B-4845-B917-241A8A2C9DD5/62/57ac1753/IHostingEnvironment.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="19" lean-forward="true" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Config/Error.cs" />
+    <entry file="file://$PROJECT_DIR$/backend/Config/Enum1.cs" />
+    <entry file="file://$PROJECT_DIR$/backend/Service/SecurityService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Controllers/SecurityController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="28" column="37" lean-forward="false" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Service/ICommonService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7469EA46-1AEA-47E2-BA3B-AAD4E0506E84/54/715ec250/ControllerBase.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="91" column="32" lean-forward="false" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/928C9570-91EA-4C8C-9203-C5100319586E/97/6ef02226/ModelErrorCollection.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/928C9570-91EA-4C8C-9203-C5100319586E/82/cfe3634f/ModelStateEntry.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="30" column="11" lean-forward="false" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6982C37D-6BC4-4C6E-8D9A-80C4EC1D09A3/f2/1f705ab4/ExecutionContextSwitcher.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Repository/UserRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="27" column="42" lean-forward="true" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Service/UserService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="37" column="32" lean-forward="false" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Entity/User.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/DTO/ChangePassword.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/DTO/Result.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Config/ResultCodes.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding>
+            <marker date="1514946619805" expanded="true" signature="84:278" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Config/Errors.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Controllers/UserController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="82" column="44" lean-forward="false" selection-start-line="82" selection-start-column="44" selection-end-line="82" selection-end-column="44" />
+          <folding>
+            <marker date="1514946947610" expanded="true" signature="6:304" ph="..." />
+            <marker date="1514946947610" expanded="true" signature="418:6715" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="612:732" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="822:1451" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="848:1313" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="1343:1441" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="1594:2535" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="1741:2440" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="2470:2525" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="2693:3713" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="2739:3335" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="2889:2997" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="3031:3321" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="3352:3703" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="3480:3602" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="3807:4320" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="4419:5990" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="4465:5613" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="4499:5425" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="4611:4713" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="4751:5407" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="5459:5599" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="5630:5980" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="5758:5879" ph="{...}" />
+            <marker date="1514946947610" expanded="true" signature="6056:6709" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Controllers/ValuesController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <marker date="1514969663111" expanded="false" signature="6:88" ph="..." />
+            <marker date="1514969663111" expanded="true" signature="119:353" ph="{...}" />
+            <marker date="1514969663111" expanded="true" signature="204:351" ph="{...}" />
+            <marker date="1514969663111" expanded="true" signature="269:345" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4525421E-814F-4B03-BAF1-F2CC20117520/f2/ffc1b7f7/IQueryProvider.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/20934972-049E-4E30-9792-0B138C9B6A30/2e/e79dafea/Queryable.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="222" column="69" lean-forward="false" selection-start-line="222" selection-start-column="58" selection-end-line="222" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FC73CFC6-637F-43C7-B075-209993A74E64/c3/c5ba18a8/IDisposable.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2603C9C8-DD69-4A3E-883D-B34FC012F771/19/84384bea/ConsoleLoggerExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A8F53157-BC3F-43A4-B175-4437A933078F/19/98d587c0/ILoggerFactory.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6982C37D-6BC4-4C6E-8D9A-80C4EC1D09A3/db/59a0e893/List`1.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="17" column="15" lean-forward="false" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6982C37D-6BC4-4C6E-8D9A-80C4EC1D09A3/4a/005d5916/String.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="772" column="22" lean-forward="false" selection-start-line="772" selection-start-column="22" selection-end-line="772" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Utilities/Utility.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="21" column="83" lean-forward="false" selection-start-line="21" selection-start-column="78" selection-end-line="21" selection-end-column="83" />
+          <folding>
+            <marker date="1514894368244" expanded="false" signature="6:255" ph="..." />
+            <marker date="1514894368244" expanded="true" signature="284:3176" ph="{...}" />
+            <marker date="1514894368244" expanded="true" signature="318:3174" ph="{...}" />
+            <marker date="1514894368244" expanded="true" signature="550:805" ph="{...}" />
+            <marker date="1514894368244" expanded="true" signature="862:1198" ph="{...}" />
+            <marker date="1514894368244" expanded="true" signature="1247:1904" ph="{...}" />
+            <marker date="1514894368244" expanded="true" signature="1284:1894" ph="{...}" />
+            <marker date="1514894368244" expanded="true" signature="1999:3168" ph="{...}" />
+            <marker date="1514894368244" expanded="true" signature="2417:3158" ph="{...}" />
+            <marker date="1514894368244" expanded="true" signature="2504:2693" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Startup.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="107" column="94" lean-forward="false" selection-start-line="107" selection-start-column="80" selection-end-line="107" selection-end-column="94" />
+          <folding>
+            <marker date="1514894517924" expanded="false" signature="6:591" ph="..." />
+            <marker date="1514894517924" expanded="true" signature="610:5102" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="637:5100" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="696:881" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="755:828" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="1104:3917" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="1203:1685" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="1330:1391" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="1506:1669" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="1901:2115" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="2174:2773" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="2295:2758" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="2814:3250" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="2910:3234" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="3345:3501" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="3710:3905" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="4135:5094" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="4392:4469" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="4714:4791" ph="{...}" />
+            <marker date="1514894517924" expanded="true" signature="4904:5056" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/appsettings.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="3" lean-forward="false" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Repository/MessageRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="28" />
+          <folding>
+            <marker date="1514537612403" expanded="false" signature="6:156" ph="..." />
+            <marker date="1514537612403" expanded="true" signature="186:3190" ph="{...}" />
+            <marker date="1514537612403" expanded="true" signature="294:3188" ph="{...}" />
+            <marker date="1514537612403" expanded="true" signature="349:590" ph="{...}" />
+            <marker date="1514537612403" expanded="true" signature="421:580" ph="{...}" />
+            <marker date="1514537612403" expanded="true" signature="637:838" ph="{...}" />
+            <marker date="1514537612403" expanded="true" signature="927:1188" ph="{...}" />
+            <marker date="1514537612403" expanded="true" signature="1236:1453" ph="{...}" />
+            <marker date="1514537612403" expanded="true" signature="1575:1912" ph="{...}" />
+            <marker date="1514537612403" expanded="true" signature="1990:2288" ph="{...}" />
+            <marker date="1514537612403" expanded="true" signature="2385:2699" ph="{...}" />
+            <marker date="1514537612403" expanded="true" signature="2752:3045" ph="{...}" />
+            <marker date="1514537612403" expanded="true" signature="2824:3035" ph="{...}" />
+            <marker date="1514537612403" expanded="true" signature="3095:3182" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Controllers/RoomController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="50" column="87" lean-forward="false" selection-start-line="50" selection-start-column="87" selection-end-line="50" selection-end-column="87" />
+          <folding>
+            <marker date="1515037239673" expanded="true" signature="6:317" ph="..." />
+            <marker date="1515037239673" expanded="true" signature="348:6354" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="458:6352" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="808:1078" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="1176:2261" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="1202:2164" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="1309:1543" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="1596:1875" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="1896:2110" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="1977:2092" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="2194:2251" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="2673:3425" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="2794:3330" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="3360:3415" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="3542:4435" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="3568:4337" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="3816:4137" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="4367:4425" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="4545:5841" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="4571:5743" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="4754:5327" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="4815:4991" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="5068:5307" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="5348:5699" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="5773:5831" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="5972:6346" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="5998:6248" ph="{...}" />
+            <marker date="1515037239673" expanded="true" signature="6278:6336" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Controllers/MessagesController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="72" column="60" lean-forward="false" selection-start-line="72" selection-start-column="56" selection-end-line="72" selection-end-column="60" />
+          <folding>
+            <marker date="1514632402924" expanded="false" signature="6:321" ph="..." />
+            <marker date="1514632402924" expanded="true" signature="352:2815" ph="{...}" />
+            <marker date="1514632402924" expanded="true" signature="442:2813" ph="{...}" />
+            <marker date="1514632402924" expanded="true" signature="746:962" ph="{...}" />
+            <marker date="1514632402924" expanded="true" signature="1139:1543" ph="{...}" />
+            <marker date="1514632402924" expanded="true" signature="1257:1429" ph="{...}" />
+            <marker date="1514632402924" expanded="true" signature="1461:1533" ph="{...}" />
+            <marker date="1514632402924" expanded="true" signature="1595:1990" ph="{...}" />
+            <marker date="1514632402924" expanded="true" signature="2000:2091" ph="/// Get List message history in room by length ... " />
+            <marker date="1514632402924" expanded="true" signature="2224:2807" ph="{...}" />
+            <marker date="1514632402924" expanded="true" signature="2250:2710" ph="{...}" />
+            <marker date="1514632402924" expanded="true" signature="2740:2797" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Controllers/BaseController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="15" column="94" lean-forward="false" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
+          <folding>
+            <marker date="1514632431022" expanded="false" signature="6:127" ph="..." />
+            <marker date="1514632431022" expanded="true" signature="158:1119" ph="{...}" />
+            <marker date="1514632431022" expanded="true" signature="205:1117" ph="{...}" />
+            <marker date="1514632431022" expanded="true" signature="243:254" ph="{...}" />
+            <marker date="1514632431022" expanded="true" signature="285:1111" ph="{...}" />
+            <marker date="1514632431022" expanded="true" signature="477:1075" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Hubs/MessageHub.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="70" column="8" lean-forward="false" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="8" />
+          <folding>
+            <marker date="1515037004099" expanded="false" signature="6:240" ph="..." />
+            <marker date="1515037004099" expanded="true" signature="264:3141" ph="{...}" />
+            <marker date="1515037004099" expanded="true" signature="316:3139" ph="{...}" />
+            <marker date="1515037004099" expanded="true" signature="519:683" ph="{...}" />
+            <marker date="1515037004099" expanded="true" signature="732:1303" ph="{...}" />
+            <marker date="1515037004099" expanded="true" signature="782:907" ph="{...}" />
+            <marker date="1515037004099" expanded="true" signature="937:993" ph="{...}" />
+            <marker date="1515037004099" expanded="true" signature="1353:2539" ph="{...}" />
+            <marker date="1515037004099" expanded="true" signature="1895:2075" ph="{...}" />
+            <marker date="1515037004099" expanded="true" signature="2092:2279" ph="{...}" />
+            <marker date="1515037004099" expanded="true" signature="2311:2529" ph="{...}" />
+            <marker date="1515037004099" expanded="true" signature="2603:3133" ph="{...}" />
+            <marker date="1515037004099" expanded="true" signature="2629:3035" ph="{...}" />
+            <marker date="1515037004099" expanded="true" signature="3065:3123" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Middleware/JWTSignalRMiddleware.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1514629572795" expanded="true" signature="6:129" ph="..." />
+            <marker date="1514629572795" expanded="true" signature="159:906" ph="{...}" />
+            <marker date="1514629572795" expanded="true" signature="299:822" ph="{...}" />
+            <marker date="1514629572795" expanded="true" signature="412:458" ph="{...}" />
+            <marker date="1514629572795" expanded="true" signature="511:816" ph="{...}" />
+            <marker date="1514629572795" expanded="true" signature="589:767" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Middleware/JWTSignalRMiddlewareExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1514629572778" expanded="true" signature="65:322" ph="{...}" />
+            <marker date="1514629572778" expanded="true" signature="122:320" ph="{...}" />
+            <marker date="1514629572778" expanded="true" signature="228:314" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Views/Shared/_ValidationScriptsPartial.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1511841326954" expanded="true" signature="0:219" ph="&lt;environment.../&gt;" />
+            <marker date="1511841326954" expanded="true" signature="220:892" ph="&lt;environment.../&gt;" />
+            <marker date="1511841326954" expanded="true" signature="265:527" ph="&lt;script.../&gt;" />
+            <marker date="1511841326954" expanded="true" signature="532:877" ph="&lt;script.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Hubs/RoomHub.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <marker date="1515036985426" expanded="true" signature="6:233" ph="..." />
+            <marker date="1515036985426" expanded="true" signature="257:3834" ph="{...}" />
+            <marker date="1515036985426" expanded="true" signature="306:3832" ph="{...}" />
+            <marker date="1515036985426" expanded="true" signature="556:774" ph="{...}" />
+            <marker date="1515036985426" expanded="true" signature="826:1344" ph="{...}" />
+            <marker date="1515036985426" expanded="true" signature="1407:2099" ph="{...}" />
+            <marker date="1515036985426" expanded="true" signature="1787:1977" ph="{...}" />
+            <marker date="1515036985426" expanded="true" signature="2212:3297" ph="{...}" />
+            <marker date="1515036985426" expanded="true" signature="2261:3287" ph="{...}" />
+            <marker date="1515036985426" expanded="true" signature="2416:3273" ph="{...}" />
+            <marker date="1515036985426" expanded="true" signature="3402:3826" ph="{...}" />
+            <marker date="1515036985426" expanded="true" signature="3466:3814" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/Utilities/Constant.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <marker date="1515037379458" expanded="false" signature="6:96" ph="..." />
+            <marker date="1515037379458" expanded="true" signature="125:1136" ph="{...}" />
+            <marker date="1515037379458" expanded="true" signature="160:1134" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

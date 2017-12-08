@@ -11,5 +11,6 @@ namespace backend.DTO
         public string Name { get; set; }
         public string NewMessage { get; set; }
         public string TimeMessage { get; set; }
+        public string Type { get; set; }
     }
 }

@@ -11,7 +11,11 @@ namespace backend.Entity
 {
     public class ChatDBContext : DbContext
     {
+
         public ChatDBContext() : base()
+        { }
+
+        public ChatDBContext(DbContextOptions<ChatDBContext> option):base()
         {}
 
         public virtual DbSet<User> Users { get; set; }

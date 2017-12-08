@@ -1,32 +1,35 @@
-﻿using MailKit.Net.Smtp;
+﻿using System;
+using System.ComponentModel;
+using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using System.Security.Claims;
-using System.Globalization;
+using backend.Config;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;
 
 namespace backend.Utilities
 {
-    public class Utility
+    public static class Utility
     {
         public static readonly LoggerFactory CustomLoggerFactory
             = new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) });
+        
+        public static string GetDescription(this Enum val)
+        {
+            var attributes = (DescriptionAttribute[])val.GetType().GetField(val.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false);
+            return attributes.Length > 0 ? attributes[0].Description : string.Empty;
+        }
+
         public static string Sha512Hash(string message)
         {
-            System.Text.StringBuilder Sb = new System.Text.StringBuilder();
+            var sb = new System.Text.StringBuilder();
             var b1 = System.Text.Encoding.UTF8.GetBytes(message);
             var bs = System.Security.Cryptography.SHA512.Create().ComputeHash(b1);
-            foreach (byte b in bs)
-                Sb.Append(b.ToString("x2"));
-            return Sb.ToString();
+            foreach (var b in bs)
+                sb.Append(b.ToString("x2"));
+            return sb.ToString();
         }
 
         public static object Room(string param)
@@ -35,21 +38,31 @@ namespace backend.Utilities
             {
                 case "1":
                     return "manager";
+
                 case "manager":
                     return 1;
+
                 case "2":
                     return "technical";
+
                 case "technical":
                     return 2;
+
                 case "3":
                     return "advisory";
+
                 case "advisory":
                     return 3;
+
+                case "4":
+                    return "general";
+                case "general":
+                    return 4;
                 default:
                     return string.Empty;
-
             }
         }
+
         public static async Task SendEmailAsync(string email, string subject, string message)
         {
             var emailMessage = new MimeMessage();

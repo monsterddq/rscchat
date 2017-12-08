@@ -20,3 +20,14 @@ D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\bin\Debug\netcoreapp2.0\backend.dl
 D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\bin\Debug\netcoreapp2.0\backend.pdb
 D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.dll
 D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.pdb
+D:\.NET Core\rscchat\Asp.Net\backend\backend\bin\Debug\netcoreapp2.0\backend.deps.json
+D:\.NET Core\rscchat\Asp.Net\backend\backend\bin\Debug\netcoreapp2.0\backend.runtimeconfig.json
+D:\.NET Core\rscchat\Asp.Net\backend\backend\bin\Debug\netcoreapp2.0\backend.runtimeconfig.dev.json
+D:\.NET Core\rscchat\Asp.Net\backend\backend\bin\Debug\netcoreapp2.0\backend.dll
+D:\.NET Core\rscchat\Asp.Net\backend\backend\bin\Debug\netcoreapp2.0\backend.pdb
+D:\.NET Core\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.csprojResolveAssemblyReference.cache
+D:\.NET Core\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.csproj.CoreCompileInputs.cache
+D:\.NET Core\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.AssemblyInfoInputs.cache
+D:\.NET Core\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.AssemblyInfo.cs
+D:\.NET Core\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.dll
+D:\.NET Core\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.pdb

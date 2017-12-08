@@ -31,7 +31,8 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "2.0.1",
           "Microsoft.NETCore.App": "2.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.0",
-          "Newtonsoft.Json": "10.0.3"
+          "Newtonsoft.Json": "10.0.3",
+          "System.ValueTuple": "4.4.0"
         },
         "runtime": {
           "backend.dll": {}

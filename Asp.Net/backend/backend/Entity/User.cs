@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace backend.Entity
 {
-    public class User
+    [Serializable]
+    public sealed class User 
     {
 
         [Key]
@@ -25,7 +24,7 @@ namespace backend.Entity
         public bool VerifyEmail { get; set; }
         public int Role { get; set; }
 
-        public virtual ICollection<UserRoom> UserRoom { get; set; }
+        public ICollection<UserRoom> UserRoom { get; set; }
 
         public User()
         {

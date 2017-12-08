@@ -68,7 +68,19 @@ namespace backend.Repository
                      .Take(limit)
                      .ToList();
         }
-        
+
+        public IEnumerable<Message> LimitedWithGetAllByRoomId(int roomId, int start, int limit)
+        {
+            return db.Messages
+                .Include(w => w.Room)
+                .Include(w => w.User)
+                .Where(w=>w.RoomId == roomId)
+                .OrderByDescending(w => w.Time)
+                .Skip(start * limit)
+                .Take(limit)
+                .ToList();
+        }
+
         public override Message Modify(Message obj)
         {
             using (var tran = db.Database.BeginTransaction())

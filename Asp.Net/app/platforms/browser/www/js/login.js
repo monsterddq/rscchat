@@ -1,3 +1,5 @@
+
+
 class UserLogin{
   constructor(username="",password=""){
     this.username = username,
@@ -6,7 +8,7 @@ class UserLogin{
 }
 function isValid(data){
   if(!data.username || !data.password){
-    alertify.warning(notify())
+    alertify.warning(notify("400"))
     return false;
   }
   return true;
@@ -26,22 +28,39 @@ function login(){
     let decode = jwt_decode(a);
     let user = Object.values(decode);
     localStorage.setItem('bear',a);
-    if(user[5]=="4")
-      window.location.href = "index.html"; //user
-    else
-      window.location.href = "index2.html"; //manager
+    setTimeout(function() {
+        window.location.href = "index.html";
+    }, 50);
+    nativetransitions.flip(0.5, "right");
   })
 }
 
-$(document).ready(function(){
-  $(".btn-login").click(()=>{
-    login();
-    return false;
-  });
-  $("input").keypress((e)=>{
-    if(e.key=="Enter"){
-      login();
-      return false;
+var app = {
+    // Application Constructor
+    initialize: function() {
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+    },
+
+    onDeviceReady: function() {
+        this.receivedEvent();
+    },
+    receivedEvent: function() {
+      var store = Object.entries(localStorage);
+      store.forEach((v,k) => {
+        localStorage.removeItem(v[0]);
+      });
+      localStorage.setItem("language","vi");
+      $(".btn-login").click(()=>{
+        login();
+        return false;
+      });
+      $("input").keypress((e)=>{
+        if(e.key=="Enter"){
+          login();
+          return false;
+        }
+      })
     }
-  })
-})
+};
+
+app.initialize();

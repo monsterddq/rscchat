@@ -1,0 +1,11 @@
+D:\C#-ASP.NET\rscchat\Asp.Net\backend\Test\bin\Debug\netcoreapp2.0\Test.deps.json
+D:\C#-ASP.NET\rscchat\Asp.Net\backend\Test\bin\Debug\netcoreapp2.0\Test.runtimeconfig.json
+D:\C#-ASP.NET\rscchat\Asp.Net\backend\Test\bin\Debug\netcoreapp2.0\Test.runtimeconfig.dev.json
+D:\C#-ASP.NET\rscchat\Asp.Net\backend\Test\bin\Debug\netcoreapp2.0\Test.dll
+D:\C#-ASP.NET\rscchat\Asp.Net\backend\Test\bin\Debug\netcoreapp2.0\Test.pdb
+D:\C#-ASP.NET\rscchat\Asp.Net\backend\Test\obj\Debug\netcoreapp2.0\Test.csprojResolveAssemblyReference.cache
+D:\C#-ASP.NET\rscchat\Asp.Net\backend\Test\obj\Debug\netcoreapp2.0\Test.csproj.CoreCompileInputs.cache
+D:\C#-ASP.NET\rscchat\Asp.Net\backend\Test\obj\Debug\netcoreapp2.0\Test.AssemblyInfoInputs.cache
+D:\C#-ASP.NET\rscchat\Asp.Net\backend\Test\obj\Debug\netcoreapp2.0\Test.AssemblyInfo.cs
+D:\C#-ASP.NET\rscchat\Asp.Net\backend\Test\obj\Debug\netcoreapp2.0\Test.dll
+D:\C#-ASP.NET\rscchat\Asp.Net\backend\Test\obj\Debug\netcoreapp2.0\Test.pdb

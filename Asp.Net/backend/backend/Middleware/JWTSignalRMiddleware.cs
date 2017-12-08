@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
 namespace backend.Middleware
@@ -29,11 +28,4 @@ namespace backend.Middleware
     }
 
     // Extension method used to add the middleware to the HTTP request pipeline.
-    public static class JWTSignalRMiddlewareExtensions
-    {
-        public static IApplicationBuilder UseJWTSignalRMiddleware(this IApplicationBuilder builder)
-        {
-            return builder.UseMiddleware<JWTSignalRMiddleware>();
-        }
-    }
 }

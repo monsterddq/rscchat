@@ -1,49 +1,89 @@
-const host = `http://localhost:64055`;
+const host = `http://45.77.175.249:50003`;
 const RegEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 !function a(b,c,d){function e(g,h){if(!c[g]){if(!b[g]){var i="function"==typeof require&&require;if(!h&&i)return i(g,!0);if(f)return f(g,!0);var j=new Error("Cannot find module '"+g+"'");throw j.code="MODULE_NOT_FOUND",j}var k=c[g]={exports:{}};b[g][0].call(k.exports,function(a){var c=b[g][1][a];return e(c?c:a)},k,k.exports,a,b,c,d)}return c[g].exports}for(var f="function"==typeof require&&require,g=0;g<d.length;g++)e(d[g]);return e}({1:[function(a,b,c){function d(a){this.message=a}function e(a){var b=String(a).replace(/=+$/,"");if(b.length%4==1)throw new d("'atob' failed: The string to be decoded is not correctly encoded.");for(var c,e,g=0,h=0,i="";e=b.charAt(h++);~e&&(c=g%4?64*c+e:e,g++%4)?i+=String.fromCharCode(255&c>>(-2*g&6)):0)e=f.indexOf(e);return i}var f="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";d.prototype=new Error,d.prototype.name="InvalidCharacterError",b.exports="undefined"!=typeof window&&window.atob&&window.atob.bind(window)||e},{}],2:[function(a,b,c){function d(a){return decodeURIComponent(e(a).replace(/(.)/g,function(a,b){var c=b.charCodeAt(0).toString(16).toUpperCase();return c.length<2&&(c="0"+c),"%"+c}))}var e=a("./atob");b.exports=function(a){var b=a.replace(/-/g,"+").replace(/_/g,"/");switch(b.length%4){case 0:break;case 2:b+="==";break;case 3:b+="=";break;default:throw"Illegal base64url string!"}try{return d(b)}catch(c){return e(b)}}},{"./atob":1}],3:[function(a,b,c){"use strict";function d(a){this.message=a}var e=a("./base64_url_decode");d.prototype=new Error,d.prototype.name="InvalidTokenError",b.exports=function(a,b){if("string"!=typeof a)throw new d("Invalid token specified");b=b||{};var c=b.header===!0?0:1;try{return JSON.parse(e(a.split(".")[c]))}catch(f){throw new d("Invalid token specified: "+f.message)}},b.exports.InvalidTokenError=d},{"./base64_url_decode":2}],4:[function(a,b,c){(function(b){var c=a("./lib/index");"function"==typeof b.window.define&&b.window.define.amd?b.window.define("jwt_decode",function(){return c}):b.window&&(b.window.jwt_decode=c)}).call(this,"undefined"!=typeof global?global:"undefined"!=typeof self?self:"undefined"!=typeof window?window:{})},{"./lib/index":3}]},{},[4]);
 let tempUser = [];
-if(localStorage.getItem('bear')){
-  let decode = jwt_decode(localStorage.getItem('bear'));
-  tempUser = Object.values(decode);
+var Use="";
+var link = {
+  "post_room" : "/api/room",
+  "history": "/api/room/history",
+  "close": "/api/room/close",
+  "upload": "/api/user/upload",
+  "user": "/api/user",
+  "password": "/api/user/change-password"
 }
-var User = {
-  UserName: tempUser[0] || "",
-  FullName: tempUser[1] || "",
-  Phone: tempUser[2] || "",
-  Email: tempUser[3] || "",
-  Avatar: tempUser[4] || "",
-  Role: tempUser[5] || ""
-}
-if(!localStorage.getItem('language'))
-  localStorage.setItem('language','vi');
+if(!localStorage.getItem('language')) localStorage.setItem('language','vi');
 alertify.set('notifier','position', 'bottom-left');
- alertify.prompt().setting('transition', 'zoom');
+alertify.prompt().setting('transition', 'zoom');
+function setUserCurrent(){
+ if(localStorage.getItem('bear')){
+   let decode = jwt_decode(localStorage.getItem('bear'));
+   tempUser = Object.values(decode);
+ }
+ User = {
+   UserName: tempUser[0] || "",
+   FullName: tempUser[1] || "",
+   Phone: tempUser[2] || "",
+   Email: tempUser[3] || "",
+   Avatar: tempUser[4] || "",
+   Role: tempUser[5] || ""
+ }
+}
 function notify(obj){
+  obj = obj.toString();
   switch(obj){
     case "fullname":
       return localStorage.getItem('language') === "vi" ? "Tên không được bỏ trống" : "FullName is not empty";
     case "email":
       return localStorage.getItem('language') === "vi" ? "Email không hợp lệ" : "Email is invalid";
     case "200":
-    case 200:
       return localStorage.getItem('language') === "vi" ? "Thành công" : "Success";
-    case 401:
     case "401":
       return localStorage.getItem('language') === "vi" ? "Bạn không đủ quyền để truy cập địa chỉ này" : "You don't unauthenticated to access this page.";
     case "login":
       return localStorage.getItem('language') === "vi" ? "Tên đăng nhập hoặc mật khẩu sai" : "UserName or Password is not match.";
     case "1":
-    case 1:
       return localStorage.getItem('language') === "vi" ? "Dữ liệu bị trùng lặp" : "Duplicate data";
     case "2":
-    case 2:
       return localStorage.getItem('language') === "vi" ? "Dữ liệu không đúng định dạng" : "Invalid data";
-    default:
-      return localStorage.getItem('language') === "vi" ? "Các trường không được bỏ trống" : "Fields is not empty";
+    case "errorcreateroom":
+      return localStorage.getItem('language') === "vi" ? "Xảy ra lỗi khi tạo phòng" : "Create chat room faild.";
+    case "notfoudnusername":
+      return localStorage.getItem('language') === "vi" ? "Không tìm thấy UserName" : "Not found UserName";
+    case "errorImage":
+      return localStorage.getItem('language') === "vi" ? "Ảnh không đúng định dạng hoặc quá lớn" : "Image is incorrect or too large.";
+    case "fetchHistory":
+      return localStorage.getItem('language') === "vi" ? "Dữ liệu đã gửi về mail tài khoản đăng ký" : "Data send account register email.";
+    case "errorFetchHistory":
+      return localStorage.getItem('language') === "vi" ? "Lỗi khi gửi dữ liệu về mail tài khoản" : "Occurs error. Can't sent data to account register email.";
+    case "close":
+      return localStorage.getItem('language') === "vi" ? "Nhóm chat bị đóng tất cả mọi người không thể chat trong nhóm này" : "Close group.Can't chat in this group";
+    case "errorClose":
+      return localStorage.getItem('language') === "vi" ? "Nhóm chat bị đóng bị lỗi" : "Occurs errors.Can't close group";
+    case "createRoom":
+      return localStorage.getItem('language') === "vi" ? "Tạo phòng mới thành công" : "Create new room successful.";
+    case "errorCreateRoom":
+      return localStorage.getItem('language') === "vi" ? "Tên phòng đã tồn tại hoặc xảy ra lỗi." : "Name room is existed or occurs fatal error.";
+    case "logout":
+      return localStorage.getItem('language') === "vi" ? "Bạn sẽ về trang đăng nhập sau 1 giây." : "You are going to login page after 1 second.";
+    case "updateSuccess":
+      return localStorage.getItem('language') === "vi" ? "Cập nhật thông tin thành công." : "Upload profile successful.";
+    case "updateError":
+      return localStorage.getItem('language') === "vi" ? "Xuất hiện lỗi khi cập nhập thông tin cá nhân." : "Occurs errors when update your profile.";
+    case "changePassword":
+      return localStorage.getItem('language') === "vi" ? "Mật khẩu lặp lại không trùng khớp." : "Repeat password is not match.";
+    case "400":
+      return localStorage.getItem('language') === "vi" ? "Một số trường dữ liệu bị thiếu hoặc sai định dạng." : "Some field data is missing or invalid.";
+    case "100":
+      return localStorage.getItem('language') === "vi" ? "Mật khẩu không đúng." : "Password is not match.";
+    case "101":
+      return localStorage.getItem('language') === "vi" ? "Không tìm thấy tài khoản." : "User not found.";
+    case "102":
+      return localStorage.getItem('language') === "vi" ? "Email đã tồn tại." : "Email is exists.";
+    case "103":
+      return localStorage.getItem('language') === "vi" ? "Số điện thoại đã tồn tại." : "Phone is exists.";
   }
 }
 function notifyResult(obj){
-  console.log(obj);
   switch(obj.item1){
     case 200:
       alertify.success(notify(200));
@@ -73,16 +113,22 @@ function ajaxPromise(url="", method="GET",data={}) {
             type: method,
             url: `${host}${url}` ,
             data:data,
-            dataType: "json",
             crossDomain: true,
             headers: {
-              "Authorization": `Bearer ${localStorage.getItem('bear')}`
+              'Authorization': `Bearer ${localStorage.getItem('bear')}`
             },
-            success: function (data,textStatus,xhr) {
-                resolve(data,textStatus,xhr);
+            success: function (data,status,xhr) {
+                resolve(data,status,xhr);
             },
-            error: function (textStatus,xhr) {
-                reject(textStatus,xhr);
+            error: function (result,status,xhr) {
+              if(xhr==="Unauthorized"){
+                notifyResult(401);
+                localStorage.removeItem('bear');
+                setTimeout(function(){
+                  window.location.href="login.html";
+                },1000);
+              }
+                reject(status,xhr);
             }
         });
     });
@@ -98,11 +144,53 @@ function toggleMenu(){
 }
 function getTypeString(a){
     switch (a) {
-      case 0: return "Hỗ trợ chung";
-      case 1: return "Kỹ thuật";
-      default: return "Mua bán";
+      case 1:
+      case "manager":
+        return "Giám đốc";
+      case 2:
+      case "technical":
+        return "Kỹ thuật";
+      case 3:
+      case "advisory":
+        return "Tư vấn";
+      case 4:
+      case "general":
+        return "Chung";
+      default:
+        return "";
     }
 }
+function convertTime(a){
+  //2017-12-08T05:18:16.627Z
+  if(!a) return "";
+  let time = new Date(a);
+  return IsDayNow(time) ? `${formatTime(time.getHours())}:${formatTime(time.getMinutes())}`
+      : `${formatTime(time.getHours())}:${formatTime(time.getMinutes())} ${formatTime(time.getDate())}-${formatTime(time.getMonth())}-${time.getFullYear()}`;
+}
+function formatTime(a) {
+  return a<10 ? `0${a}` : a;
+}
+function IsDayNow(a){
+  let b = new Date();
+  return a.getFullYear() === b.getFullYear()
+      && a.getMonth() === b.getMonth()
+      && a.getDate() === b.getDate();
+}
+File.prototype.toBase64 = function(callback) {
+    var FR= new FileReader();
+    FR.addEventListener("load", function(e) {
+      // e.target.result
+      callback(e.target.result);
+    });
+    FR.readAsDataURL(this);
+};
+function clearLocalStorage(){
+  let a = Object.entries(localStorage);
+  a.forEach(v => {
+    if(v[1]!="language") localStorage.removeItem(v[1]);
+  });
+}
+setUserCurrent();
 $(document).ready(function() {
   //toggleMenu();
 });

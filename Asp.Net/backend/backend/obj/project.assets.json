@@ -13871,7 +13871,8 @@
       "Microsoft.EntityFrameworkCore.Sqlite >= 2.0.1",
       "Microsoft.NETCore.App >= 2.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.0",
-      "Newtonsoft.Json >= 10.0.3"
+      "Newtonsoft.Json >= 10.0.3",
+      "System.ValueTuple >= 4.4.0"
     ]
   },
   "packageFolders": {
@@ -13880,15 +13881,12 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "D:\\C#-ASP.NET\\rscchat\\Asp.Net\\backend\\backend\\backend.csproj",
+      "projectUniqueName": "D:\\.NET Core\\rscchat\\Asp.Net\\backend\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "D:\\C#-ASP.NET\\rscchat\\Asp.Net\\backend\\backend\\backend.csproj",
+      "projectPath": "D:\\.NET Core\\rscchat\\Asp.Net\\backend\\backend\\backend.csproj",
       "packagesPath": "C:\\Users\\Doan Quoc Thai\\.nuget\\packages\\",
-      "outputPath": "D:\\C#-ASP.NET\\rscchat\\Asp.Net\\backend\\backend\\obj\\",
+      "outputPath": "D:\\.NET Core\\rscchat\\Asp.Net\\backend\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13943,6 +13941,7 @@
             "version": "[2.0.1, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.0.0, )",
             "autoReferenced": true
@@ -13954,6 +13953,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[10.0.3, )"
+          },
+          "System.ValueTuple": {
+            "target": "Package",
+            "version": "[4.4.0, )"
           }
         },
         "imports": [
