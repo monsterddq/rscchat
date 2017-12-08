@@ -7,9 +7,11 @@ using backend.Entity;
 using backend.DTO;
 using backend.Service;
 using backend.Utilities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Hubs
 {
+    [Authorize]
     public class RoomHub : Hub
     {
         private RoomService roomService;
@@ -23,10 +25,6 @@ namespace backend.Hubs
             messageService = new MessageService();
         }
 
-        public override Task OnConnectedAsync()
-        {
-            return base.OnConnectedAsync();
-        }
 
         /// <summary>
         /// Get list room by username from request

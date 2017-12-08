@@ -13,10 +13,10 @@ D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.cs
 D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.csproj.CoreCompileInputs.cache
 D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.AssemblyInfoInputs.cache
 D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.AssemblyInfo.cs
-D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.dll
-D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.pdb
 D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\bin\Debug\netcoreapp2.0\backend.deps.json
 D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\bin\Debug\netcoreapp2.0\backend.runtimeconfig.json
 D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\bin\Debug\netcoreapp2.0\backend.runtimeconfig.dev.json
 D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\bin\Debug\netcoreapp2.0\backend.dll
 D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\bin\Debug\netcoreapp2.0\backend.pdb
+D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.dll
+D:\C#-ASP.NET\rscchat\Asp.Net\backend\backend\obj\Debug\netcoreapp2.0\backend.pdb

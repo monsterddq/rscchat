@@ -67,18 +67,15 @@ namespace backend.Service
             var currentUser = userRepository.Find(user.UserName);
             if (currentUser == null)
                 throw new Exception("Can't find user by username");
-            var listAdminUser = new List<User>();
+            var listAdminUser = new List<User>
+            {
+                currentUser
+            };
             if (currentUser.Role == Constant.RoleUser)
             {
-                if (!IsExistsRoomOfUser(currentUser))// check exists room with current user
-                {
-                    listAdminUser = userRepository.FindBy(w => w.Role == room.Type); // add user manage this room
-                    listAdminUser.AddRange(userRepository.FindBy(w => w.Role == Constant.RoleAdministrator)); // add administrator user
-                    listAdminUser.Add(currentUser); // add current user
-                }
+                listAdminUser.AddRange(userRepository.FindBy(w => w.Role == room.Type)); // add user manage this room
+                listAdminUser.AddRange(userRepository.FindBy(w => w.Role == Constant.RoleAdministrator)); // add administrator user
             }
-            else
-                listAdminUser.Add(currentUser);
             AddRoomWithUser(room, listAdminUser);
             return room;
         }

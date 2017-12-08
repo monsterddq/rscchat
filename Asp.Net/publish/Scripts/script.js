@@ -49,8 +49,10 @@ $(document).ready(function () {
         });
       })
         break;
-        case "/home/chat":
+      case "/home/chat":
+          
           getUserCurrent().then(() => {
+            setBackground(getParameterURL("type").value);
             if (User.Role == 1)
             {
                 $(".note").remove();
@@ -60,7 +62,6 @@ $(document).ready(function () {
                         $(".room-name span").text(`${getTypeString(b.Item2)} - ${b.Item1}`);
                     })
             }
-            
             ajaxGetPromise(`/api/message`,{id: getParameterURL("type").value})
                 .then((a) => {
                     a.forEach((v, k) => {
@@ -118,10 +119,10 @@ $(document).ready(function () {
                     }
                     $("html, body").animate({ scrollTop: $(document).height() }, 1000);
                     if (User.Role != 1) {
-                        ajaxGetPromise(`/api/chat`, { id: parseInt(getParameterURL("type").value), username: User.UserName })
-                            .then((b) => {
-                                $(".room-name span").text(`${getTypeString(a[0].Room.Type)} - ${b}`);
-                            })
+                    ajaxGetPromise(`/api/chat`, { id: parseInt(getParameterURL("type").value), username: User.UserName })
+                        .then((b) => {
+                            $(".room-name span").text(`${getTypeString(b.Item2)} - ${b.Item1}`);
+                        })
                     }
                 })
             var connection = $.hubConnection(`/signalr`, { useDefaultPath: false, qs: `a=${User.UserName}&b=${getParameterURL("type").value}`});

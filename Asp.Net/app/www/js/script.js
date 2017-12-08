@@ -41,6 +41,8 @@ function notify(obj){
     case "2":
     case 2:
       return localStorage.getItem('language') === "vi" ? "Dữ liệu không đúng định dạng" : "Invalid data";
+    case "errorcreateroom":
+      return localStorage.getItem('language') === "vi" ? "Xảy ra lỗi khi tạo phòng" : "Create chat room faild.";
     default:
       return localStorage.getItem('language') === "vi" ? "Các trường không được bỏ trống" : "Fields is not empty";
   }

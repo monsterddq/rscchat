@@ -247,12 +247,13 @@ footer{
   height:40px;
 }
 input[name=message]{
-    width: 90%;
-    height: 40px;
-    padding: 5px 20px;
+    width: calc(100% - 100px);
+    height: 35px;
+    padding: 3px 10px;
     border-radius: 50px;
     border: 1px solid #bbbbbb;
     color: #000;
+    font-size: 16px;
 }
 input[name=message]:focus{
   outline-width: 0px;
@@ -261,6 +262,7 @@ input[name=message]:focus{
   float: right;
   line-height: 50px;
   width: 50px;
+  min-width: 50px;
   height: 50px;
   padding-top:10px;
 }
@@ -321,4 +323,24 @@ input[name=message]:focus{
 iframe{
   border:none;
   width: 100%;
+}
+.note{
+  position: fixed;
+  top:10px;
+  right:10px;
+}
+.note-box{
+  float: right;
+background: #ece7e7;
+padding: 10px;
+}
+
+.note-box > .box-item:hover {
+    background: #128de6;
+    color: #fff;
+}
+
+.note-box > .box-item {
+    padding: 5px;
+    cursor: pointer;
 }

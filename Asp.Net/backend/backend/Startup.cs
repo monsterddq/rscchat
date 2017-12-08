@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using static backend.Utilities.Constant;
 using backend.Hubs;
+using backend.Middleware;
 
 namespace backend
 {
@@ -108,6 +109,8 @@ namespace backend
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseMiddleware<JWTSignalRMiddleware>();
+            //app.UseSecurityMiddleware();
             app.UseSession();
             app.UseCors("AllowAllOrigin");
             app.UseAuthentication();
@@ -119,7 +122,8 @@ namespace backend
             app.UseMvcWithDefaultRoute();
             app.UseSignalR(routes =>
             {
-                routes.MapHub<RoomHub>("roomHub");
+                routes.MapHub<RoomHub>("signalR/roomHub");
+                routes.MapHub<MessageHub>("signalR/messageHub");
             });
             app.UseMvc();
         }

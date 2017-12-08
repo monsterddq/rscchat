@@ -1,5 +1,6 @@
 ﻿using backend.Entity;
 using backend.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace backend.Hubs
 {
+    [Authorize]
     public class MessageHub : Hub
     {
         private MessageService messageService;
@@ -19,6 +21,15 @@ namespace backend.Hubs
             roomService = new RoomService();
             userService = new UserService();
         }
+        /// <summary>
+        /// Create Group ConnectionId when user connected.
+        /// </summary>
+        /// <returns></returns>
+        public override Task OnConnectedAsync()
+        {
+            return base.OnConnectedAsync();
+        }
+
         /// <summary>
         /// Get List message history in room by length
         /// </summary>
@@ -50,7 +61,7 @@ namespace backend.Hubs
             try
             {
                 var result = messageService.Add(msg);
-                Clients.Group(message.RoomId.ToString()).InvokeAsync("sendmessage", result);
+                Clients.Client(Context.ConnectionId).InvokeAsync("fetchmessage", result);
             }
             catch (Exception e)
             {

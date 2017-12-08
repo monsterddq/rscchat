@@ -258,3 +258,19 @@ function changeBackground() {
         });
     })
 }
+function setBackground(id)
+{
+    console.log(id);
+    $.ajax({
+        url: `/media/fetchgroupbackground`,
+        type: "GET",
+        data: {id: id},
+        contentType: 'json',
+        success: function (result) {
+            $("body").css('background', `url('${result}')  no-repeat center center fixed`);
+        },
+        error: function (err) {
+            alert(err.statusText);
+        }
+    });
+}

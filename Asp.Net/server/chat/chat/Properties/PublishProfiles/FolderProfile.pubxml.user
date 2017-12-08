@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\C#-ASP.NET\rscchat\Asp.Net\publish</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\C#-ASP.NET\rscchat\Asp.Net\publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -85,10 +85,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/16/2017 17:13:37</publishTime>
     </File>
     <File Include="bin/chat.dll">
-      <publishTime>11/09/2017 10:46:03</publishTime>
+      <publishTime>12/07/2017 14:25:14</publishTime>
     </File>
     <File Include="bin/chat.pdb">
-      <publishTime>11/09/2017 10:46:03</publishTime>
+      <publishTime>12/07/2017 14:25:14</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/02/2015 09:32:26</publishTime>
@@ -354,17 +354,83 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/bootstrap.min.css">
       <publishTime>09/17/2017 13:17:12</publishTime>
     </File>
+    <File Include="Content/Image/19904907_1901582003433868_7050867995868747697_n.jpg">
+      <publishTime>11/09/2017 10:06:21</publishTime>
+    </File>
+    <File Include="Content/Image/836347.jpg">
+      <publishTime>09/28/2017 10:02:35</publishTime>
+    </File>
+    <File Include="Content/Image/avatar.jpeg">
+      <publishTime>09/28/2017 14:53:29</publishTime>
+    </File>
+    <File Include="Content/Image/BGd31-1.jpg">
+      <publishTime>11/09/2017 10:07:03</publishTime>
+    </File>
+    <File Include="Content/Image/box.gif">
+      <publishTime>09/28/2017 10:03:32</publishTime>
+    </File>
+    <File Include="Content/Image/contact.png">
+      <publishTime>09/27/2017 18:10:17</publishTime>
+    </File>
+    <File Include="Content/Image/download.jpg">
+      <publishTime>11/11/2017 14:45:29</publishTime>
+    </File>
+    <File Include="Content/Image/home.png">
+      <publishTime>09/27/2017 18:10:13</publishTime>
+    </File>
+    <File Include="Content/Image/image001.png">
+      <publishTime>11/11/2017 15:03:41</publishTime>
+    </File>
+    <File Include="Content/Image/login.jpg">
+      <publishTime>09/28/2017 15:01:50</publishTime>
+    </File>
+    <File Include="Content/Image/logo.png">
+      <publishTime>11/11/2017 14:42:45</publishTime>
+    </File>
+    <File Include="Content/Image/Main.png">
+      <publishTime>09/28/2017 10:04:08</publishTime>
+    </File>
+    <File Include="Content/Image/maxresdefault.jpg">
+      <publishTime>09/27/2017 16:39:52</publishTime>
+    </File>
+    <File Include="Content/Image/media.png">
+      <publishTime>09/28/2017 09:57:53</publishTime>
+    </File>
+    <File Include="Content/Image/Sketch %2817%29.png">
+      <publishTime>09/28/2017 10:03:00</publishTime>
+    </File>
+    <File Include="Content/Image/Sketch %2819%29.png">
+      <publishTime>09/28/2017 10:03:07</publishTime>
+    </File>
+    <File Include="Content/Image/Sketch %2820%29.png">
+      <publishTime>09/28/2017 10:03:13</publishTime>
+    </File>
+    <File Include="Content/Image/Sketch.png">
+      <publishTime>11/09/2017 10:06:27</publishTime>
+    </File>
+    <File Include="Content/Image/soul-worker-fiche-rpg-reviews.jpg">
+      <publishTime>09/28/2017 10:02:48</publishTime>
+    </File>
+    <File Include="Content/Image/soul-worker.jpg">
+      <publishTime>09/28/2017 10:02:40</publishTime>
+    </File>
+    <File Include="Content/Image/soul-worker.png">
+      <publishTime>11/09/2017 15:41:29</publishTime>
+    </File>
     <File Include="Content/Images/60740.svg">
       <publishTime>09/20/2017 16:31:27</publishTime>
     </File>
+    <File Include="Content/Images/addicon.png">
+      <publishTime>11/09/2017 09:37:52</publishTime>
+    </File>
     <File Include="Content/Images/avatar.jpeg">
-      <publishTime>09/20/2017 16:18:36</publishTime>
+      <publishTime>09/05/2017 13:33:17</publishTime>
     </File>
     <File Include="Content/Images/back.png">
-      <publishTime>09/20/2017 16:18:42</publishTime>
+      <publishTime>09/15/2017 14:10:12</publishTime>
     </File>
     <File Include="Content/Images/contact.png">
-      <publishTime>09/20/2017 16:18:59</publishTime>
+      <publishTime>09/16/2017 15:54:50</publishTime>
     </File>
     <File Include="Content/Images/customer-cbs.png">
       <publishTime>09/17/2017 13:17:56</publishTime>
@@ -376,7 +442,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/17/2017 13:17:56</publishTime>
     </File>
     <File Include="Content/Images/home.png">
-      <publishTime>09/20/2017 16:19:10</publishTime>
+      <publishTime>09/16/2017 15:53:17</publishTime>
     </File>
     <File Include="Content/Images/icon1.png">
       <publishTime>09/20/2017 06:28:11</publishTime>
@@ -403,7 +469,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/20/2017 16:19:30</publishTime>
     </File>
     <File Include="Content/Images/menu.png">
-      <publishTime>09/17/2017 13:17:57</publishTime>
+      <publishTime>09/10/2017 23:49:48</publishTime>
     </File>
     <File Include="Content/Images/menu1.html">
       <publishTime>09/20/2017 06:08:36</publishTime>
@@ -418,22 +484,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/20/2017 16:19:38</publishTime>
     </File>
     <File Include="Content/Images/menu4.png">
-      <publishTime>09/20/2017 16:19:40</publishTime>
+      <publishTime>11/27/2017 15:02:09</publishTime>
     </File>
     <File Include="Content/Images/menu5.png">
       <publishTime>09/20/2017 16:19:42</publishTime>
     </File>
     <File Include="Content/Images/search.png">
-      <publishTime>09/20/2017 16:19:46</publishTime>
+      <publishTime>11/27/2017 19:50:10</publishTime>
     </File>
     <File Include="Content/Images/send.png">
-      <publishTime>09/17/2017 13:17:57</publishTime>
+      <publishTime>09/15/2017 14:29:46</publishTime>
     </File>
     <File Include="Content/Images/top-shadow.png">
-      <publishTime>09/20/2017 16:19:53</publishTime>
+      <publishTime>09/05/2017 13:33:18</publishTime>
     </File>
     <File Include="Content/Images/warning.png">
       <publishTime>09/18/2017 11:49:49</publishTime>
+    </File>
+    <File Include="Content/Images/web.png">
+      <publishTime>10/03/2017 14:10:39</publishTime>
     </File>
     <File Include="Content/login.css">
       <publishTime>09/17/2017 13:17:12</publishTime>
@@ -463,10 +532,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/16/2017 17:12:45</publishTime>
     </File>
     <File Include="Scripts/app.js">
-      <publishTime>11/09/2017 10:09:58</publishTime>
+      <publishTime>11/09/2017 15:49:40</publishTime>
     </File>
     <File Include="Scripts/App.jsx">
-      <publishTime>11/09/2017 09:45:17</publishTime>
+      <publishTime>12/02/2017 10:40:45</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>09/17/2017 13:18:28</publishTime>
@@ -508,7 +577,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/16/2017 17:13:31</publishTime>
     </File>
     <File Include="Scripts/script.js">
-      <publishTime>11/09/2017 10:46:16</publishTime>
+      <publishTime>11/09/2017 15:49:00</publishTime>
     </File>
     <File Include="Scripts/scriptadmin.js">
       <publishTime>09/27/2017 12:18:20</publishTime>
@@ -583,7 +652,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/16/2017 17:12:45</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/09/2017 10:48:05</publishTime>
+      <publishTime>12/07/2017 14:22:58</publishTime>
     </File>
   </ItemGroup>
 </Project>

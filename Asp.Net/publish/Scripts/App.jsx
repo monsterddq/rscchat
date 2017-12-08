@@ -198,7 +198,7 @@ class MainRoom extends React.Component
                 })
                 that.setState({ listRoom: tempory });
             }, 500)
-        }) 
+        })
 
     }
     actionSearch(id) {
@@ -296,7 +296,7 @@ class ListRoom extends React.Component {
                 );
             })
         }
-        
+
         return (
             <div className="Listdata">
                 {listRoom}
@@ -317,7 +317,7 @@ class RoomItem extends React.Component
                 <div className="col-xs-2">
                     <img src="/Content/images/customer.png" alt="" className="img-rounded center-block img-room" />
                 </div>
-                    <div className="col-xs-8">                      
+                    <div className="col-xs-8">
                     <a href={a}>
                         <p className="name-group">
                             {name}
@@ -434,8 +434,8 @@ class MenuSetting extends React.Component
         return  (
             <div className="profile-info clearfix" role="button" onClick={this.logout}>
                 <div className="col-md-3 col-xs-3 col-sm-3 text-center">
-                    <img src="/Content/Images/icon4.png" />
-                </div >
+                    <img src="/Content/Images/icon4.png" width=""/>
+                </div>
                 <div className="col-md-9 col-xs-9 col-sm-9 text-left">
                     <h3 className="modal-title">
                         Đăng xuất

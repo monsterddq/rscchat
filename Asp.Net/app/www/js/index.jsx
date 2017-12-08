@@ -1,33 +1,64 @@
-var connection = new signalR.HubConnection(`${host}/roomHub`);
-connection.on('addMessage', (message) => {
-    console.log(message);
-});
+var connect_room = new signalR.HubConnection(`${host}/signalR/roomHub?authorization=Bearer ${localStorage.getItem('bear')}`);
+var connect_chat = new signalR.HubConnection(`${host}/signalR/messageHub?authorization=Bearer ${localStorage.getItem('bear')}`);
+console.log(connect_chat);
+// connect_chat.hubs.qs = {"Authorization":``};
 if(!User.UserName) window.location.href = "/login.html";
 class App extends React.Component {
-    constructor()
-    {
+    constructor(){
         super();
         this.state = {
-          main: 1,
+          main: localStorage.getItem('main') || 1,
+          screen: localStorage.getItem('screen') || 1,
+          roomId: localStorage.getItem('roomId') || 0,
         }
     }
 
     componentDidMount(){
-      connection.start();
+      connect_room.start();
     }
 
     handleMenu(id){
-      connection.invoke('addMessage', id);
+      localStorage.setItem('screen',1);
+      localStorage.setItem('main',id);
       this.setState({main: id});
+    }
+
+    handleScreen(id){
+      localStorage.setItem('screen',2);
+      localStorage.setItem('roomId',id);
+      this.setState({screen: 2, roomId: id});
+    }
+
+    switchScreen(){
+      let screen;
+      switch (this.state.screen) {
+        case 1:
+        case "1":
+          screen = <div>
+                      <Main main={this.state.main} handleScreen={this.handleScreen.bind(this)} />
+                      <Menu handleMenu={this.handleMenu.bind(this)}/>
+                  </div>;
+          break;
+        case 2:
+        case "2":
+          screen = <ChatRoom roomId={this.state.roomId}/>;
+          break;
+        default:
+          screen = <div>
+                    <Main main={this.state.main} />
+                    <Menu handleMenu={this.handleMenu.bind(this)}/>
+                </div>;
+          break;
+      }
+      return screen;
     }
 
     render() {
         return (
-            <div>
-                <Main main={this.state.main} />
-                <Menu handleMenu={this.handleMenu.bind(this)}/>
-            </div>
-        );
+          <div>
+            {this.switchScreen()}
+          </div>
+        )
     }
 }
 
@@ -92,13 +123,17 @@ class Main extends React.Component{
     this.state = {}
   }
 
+  handleScreen(id){
+    this.props.handleScreen(id);
+  }
+
   switchMain(){
     let main;
     switch(this.props.main){
       case 1:
       case "1":
         console.log(User);
-        main = <ListRoom />;
+        main = <ListRoom handleScreen={this.handleScreen.bind(this)} />;
         break;
       case 2:
       case "2":
@@ -117,11 +152,9 @@ class Main extends React.Component{
         break;
     }
     return main;
-
   }
 
   render(){
-
       return(
         <div>
             {this.switchMain()}
@@ -250,9 +283,13 @@ class ListRoom extends React.Component{
 
   componentWillMount(){
     let main = User.Role=="4"
-             ? <ListRoomUser />
-             : <div>Admin</div>;
+             ? <ListRoomUser handleScreen={this.handleScreen.bind(this)} />
+           : <div>Admin</div>; // bind handleScreen
     this.setState({main: main});
+  }
+
+  handleScreen(id){
+    this.props.handleScreen(id);
   }
 
   handleSearch(id){
@@ -325,7 +362,11 @@ class ListRoomUser extends React.Component{
   handleSelectRoom(id){
     ajaxPromise(link['post_room'],"POST",{roomtype: id})
     .then(rs => {
-      console.log(rs);
+      if(typeof rs === "object"){
+        this.props.handleScreen(rs.roomId);
+      }else{
+        notifyResult("errorcreateroom");
+      }
     })
   }
 
@@ -366,7 +407,153 @@ class ListRoomUserItem extends React.Component{
     )
   }
 }
+//End ListRoom
 
+//Start ChatRoom
+class Message{
+  constructor(MessageId=0,Time= new Date(),Content="",UserName=User.UserName,RoomId=localStorage.getItem("roomId")){
+    this.MessageId = MessageId || 0,
+    this.Time = Time || new Date(),
+    this.Content = Content || "",
+    this.UserName = UserName || User.UserName,
+    this.RoomId = RoomId || localStorage.getItem("roomId")
+  }
+}
+class ChatRoom extends React.Component{
+  constructor(props){
+    super();
+  }
+  // set connection to Hub
+  componentWillMount(){
+    connect_chat.start();
+    // connect_chat.on('fetchmessagehistory', list =>
+    // {
+    // });
+    connect_chat.on('fetchmessage', result =>
+    {
+        console.log(result);
+    })
+    //connect_chat.invoke('FetchHistoryMessage', this.props.roomId, User.UserName,20);
+  }
+
+  sendMessage(message){
+    let msg = new Message(null,null,message,User.UserName,this.props.roomId);
+     connect_chat.invoke('sendMessage',msg);
+  }
+
+  componentDidMount(){
+
+  }
+
+  render(){
+    return (
+      <div>
+          <HeaderChatRoom />
+          <InputMessageBox sendMessage={this.sendMessage.bind(this)} />
+      </div>
+    )
+  }
+}
+class HeaderChatRoom extends React.Component{
+  constructor(props){
+    super();
+    this.state = {
+      show: false
+    }
+  }
+
+  showMenu(){
+    this.setState({show: !this.state.show});
+  }
+
+  render(){
+    return (
+        <header>
+            <div className="button-back">
+                <a href="#" className="display-block">
+                    <img src="images/back.png" alt="" className="img-rounded center-block"/>
+                </a>
+            </div>
+            <div className="room-name">
+                <span>Tên nhóm</span>
+            </div>
+            <div className="note">
+                <a href="#" className="display-block" onClick={this.showMenu.bind(this)}>
+                    <img src="images/warning.png" alt="" className="img-rounded center-block" width="30px"/>
+                </a>
+            </div>
+            <HeaderChatRoomMenu show={this.state.show} />
+        </header>
+    )
+  }
+}
+class HeaderChatRoomMenu extends React.Component{
+  constructor(props){
+    super();
+  }
+
+  render(){
+    let show = this.props.show ? "note-box" : "note-box hidden";
+    return(
+      <div className={show}>
+          <input type="file" name="background" id="background" className="hide" />
+          <div className="box-item">
+              Thay đổi ảnh nền
+          </div>
+          <div className="box-item">
+              Mời thêm người vào nhóm
+          </div>
+          <div className="box-item">
+              Rời khỏi nhóm
+          </div>
+          <div className="box-item">
+              Sao lưu dữ liệu
+          </div>
+          <div className="box-item">
+              Đóng nhóm
+          </div>
+      </div>
+    )
+  }
+}
+class InputMessageBox extends React.Component{
+  constructor(props){
+    super();
+  }
+
+  sendMessage(){
+    if(this.refs.message.value){
+        this.props.sendMessage(this.refs.message.value);
+        document.getElementsByName("message")[0].value = "";
+    }
+  }
+
+  enterInput(e){
+    if(e.key==="Enter")
+      this.sendMessage();
+  }
+
+  render(){
+    return (
+      <footer>
+          <div className="button-back">
+              <a href="#" className="display-block">
+                  <img src="images/media.png" alt="" id="image" className="img-rounded center-block" width="30px"/>
+                  <input type="file" name="image" id="image1" className="hidden"/>
+              </a>
+          </div>
+          <div className="input-message">
+              <input type="text" name="message" ref="message" onKeyPress={this.enterInput.bind(this)}/>
+              <a href="#" className="display-block" onClick={this.sendMessage.bind(this)}>
+                  <img src="images/send.png" alt="" className="img-rounded center-block"/>
+              </a>
+          </div>
+      </footer>
+    )
+  }
+}
+
+//End ChatRoom
 
 ReactDOM.render(
     <App />,
