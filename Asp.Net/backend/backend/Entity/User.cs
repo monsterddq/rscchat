@@ -32,6 +32,11 @@ namespace backend.Entity
             this.UserRoom = new List<UserRoom>();
         }
 
+        public User(ICollection<UserRoom> userRoom)
+        {
+            UserRoom = userRoom;
+        }
+
         public User(string userName, string password, string avatar, string fullName, string phone, bool verifyEmail, int role, ICollection<UserRoom> userRoom,string email)
         {
             UserName = userName;

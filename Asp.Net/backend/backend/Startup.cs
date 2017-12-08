@@ -49,7 +49,8 @@ namespace backend
                         NoStore = true,
                         Duration = 60
                     });
-            }));
+            }))
+            .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); // fix self reference loop
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = "JwtBearer";

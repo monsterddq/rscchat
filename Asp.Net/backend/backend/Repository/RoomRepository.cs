@@ -25,38 +25,38 @@ namespace backend.Repository
         public override List<Room> FindBy(Expression<Func<Room, bool>> predicate)
         {
             return db.Rooms
+                     .Include(w => w.UserRoom)
                      .Where(predicate)
                      .OrderBy(w => w.Name)
-                     .Include(w => w.UserRoom)
                      .ToList();
         }
 
         public override List<Room> GetAll()
         {
             return db.Rooms
-                     .OrderByDescending(w => w.Time)
                      .Include(w => w.UserRoom)
+                     .OrderByDescending(w => w.Time)
                      .ToList();
         }
 
         public override List<Room> LimitedWithFindBy(Expression<Func<Room, bool>> predicate, int start, int limit)
         {
             return db.Rooms
+                     .Include(w => w.UserRoom)
                      .Where(predicate)
                      .OrderByDescending(w => w.Time)
                      .Skip(start * limit)
                      .Take(limit)
-                     .Include(w => w.UserRoom)
                      .ToList();
         }
 
         public override List<Room> LimitedWithGetAll(int start, int limit)
         {
             return db.Rooms
+                 .Include(w => w.UserRoom)
                  .OrderByDescending(w => w.Time)
                  .Skip(start * limit)
                  .Take(limit)
-                 .Include(w => w.UserRoom)
                  .ToList();
         }
 

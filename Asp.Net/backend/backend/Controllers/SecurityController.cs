@@ -26,11 +26,11 @@ namespace backend.Controllers
         {
             try
             {
-                return Json(service.Login(user));
+                    return Json(service.Login(user));
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return Json((error: "401", message: "Unauthenticate"));
+                return Json((error: "401", message: $"Unauthenticate: {e.Message}"));
             }
         }
     }

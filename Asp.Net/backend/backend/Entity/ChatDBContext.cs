@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using backend.Utilities;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace backend.Entity
 {
@@ -21,7 +22,8 @@ namespace backend.Entity
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseLoggerFactory(Utility.CustomLoggerFactory)
-                .UseSqlite("Data Source=chat.db");
+                .UseSqlite("Data Source=chat.db")
+                .ConfigureWarnings(warnings => warnings.Throw(CoreEventId.IncludeIgnoredWarning));
             base.OnConfiguring(optionsBuilder);
         }
 

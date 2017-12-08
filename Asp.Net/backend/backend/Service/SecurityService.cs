@@ -20,7 +20,7 @@ namespace backend.Service
 
         public string Login(User user)
         {
-            var u = repository.Find(user.UserName);
+             var u = repository.Find(user.UserName);
             if (u == null)
                 throw new Exception("Can't find User by UserName");
             if (!userService.CheckPassword(user.Password, u))                                   

@@ -24,52 +24,52 @@ namespace backend.Repository
         public override UserRoom Find((int RoomId, string UserName) key)
         {
             return db.UseRooms
-                 .Where(w => w.RoomId == key.RoomId && w.UserName.Equals(key.UserName))
                  .Include(w => w.User)
                  .Include(w => w.Room)
+                 .Where(w => w.RoomId == key.RoomId && w.UserName.Equals(key.UserName))
                  .SingleOrDefault();
         }
 
         public override List<UserRoom> FindBy(Expression<Func<UserRoom, bool>> predicate)
         {
             return db.UseRooms
+                .Include(w => w.User)
+                .Include(w => w.Room)
                 .Where(predicate)
                 .OrderBy(w => w.UserName)
-                .Include(w => w.User)
-                 .Include(w => w.Room)
                 .ToList();
         }
 
         public override List<UserRoom> GetAll()
         {
             return db.UseRooms
-                .OrderByDescending(w => w.UserName)
                 .Include(w => w.User)
-                 .Include(w => w.Room)
-                 .ToList();
+                .Include(w => w.Room)
+                .OrderByDescending(w => w.UserName)
+                .ToList();
         }
 
         public override List<UserRoom> LimitedWithFindBy(Expression<Func<UserRoom, bool>> predicate, int start, int limit)
         {
             return db.UseRooms
+                .Include(w => w.User)
+                .Include(w => w.Room)
                 .Where(predicate)
                 .OrderBy(w => w.UserName)
                 .Skip(start * limit)
                 .Take(limit)
-                .Include(w => w.User)
-                 .Include(w => w.Room)
-                 .ToList();
+                .ToList();
         }
 
         public override List<UserRoom> LimitedWithGetAll(int start, int limit)
         {
             return db.UseRooms
+                .Include(w => w.User)
+                .Include(w => w.Room)
                 .OrderBy(w => w.UserName)
                 .Skip(start * limit)
                 .Take(limit)
-                .Include(w => w.User)
-                 .Include(w => w.Room)
-                 .ToList();
+                .ToList();
         }
 
         public override UserRoom Modify(UserRoom obj)

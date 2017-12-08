@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,6 +10,10 @@ namespace backend.Entity
 {
     public class UserRoom
     {
+        public UserRoom()
+        {
+        }
+
         public UserRoom(string userName, int roomId)
         {
             UserName = userName;

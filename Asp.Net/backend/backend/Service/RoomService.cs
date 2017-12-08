@@ -64,14 +64,13 @@ namespace backend.Service
         /// <param name="user"></param>
         public Room AddRoomByUser(Room room, User user)
         {
-            var r = roomRepository.Add(room);
             var currentUser = userRepository.Find(user.UserName);
             if (currentUser == null)
                 throw new Exception("Can't find user by username");
             var listAdminUser = new List<User>();
             if (currentUser.Role == Constant.RoleUser)
             {
-                if (IsExistsRoomOfUser(currentUser))// check exists room with current user
+                if (!IsExistsRoomOfUser(currentUser))// check exists room with current user
                 {
                     listAdminUser = userRepository.FindBy(w => w.Role == room.Type); // add user manage this room
                     listAdminUser.AddRange(userRepository.FindBy(w => w.Role == Constant.RoleAdministrator)); // add administrator user
@@ -81,7 +80,7 @@ namespace backend.Service
             else
                 listAdminUser.Add(currentUser);
             AddRoomWithUser(room, listAdminUser);
-            return r;
+            return room;
         }
         public void AddRoomWithUser(Room obj, List<User> list)
         {
@@ -95,11 +94,19 @@ namespace backend.Service
             }
         }
 
+        public Room FetchByUserNameAndType(string username, int type)
+            => roomRepository.FindBy(w => w.Type == type && w.UserRoom.Any(e => e.UserName.Equals(username))).FirstOrDefault();
+
         private bool IsExistsRoomOfUser(User user)
-            => userRoomRepository.FindBy(w => w.UserName.Equals(user.UserName)).Count == Constant.ZERO;
+            => userRoomRepository.FindBy(w => w.UserName.Equals(user.UserName)).Count != Constant.ZERO;
 
         public bool HasRoomByUserAndType(string username, int type)
-            => roomRepository.FindBy(w => w.Type == type && w.UserRoom.Any(e => e.UserName.Equals(username))).Count == 0;
+        {
+            var all = roomRepository.GetAll();
+            var obj = roomRepository.FindBy(w => w.Type == type && w.UserRoom.Any(e => e.UserName.Equals(username)));
+            return obj.Count != 0;
+        }
+        //=> roomRepository.FindBy(w => w.Type == type && w.UserRoom.Any(e => e.UserName.Equals(username))).Count != 0;
 
         public bool IsExistsRoomById(int roomId)
             => roomRepository.Find(roomId) != null;

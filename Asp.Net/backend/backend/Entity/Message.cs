@@ -9,6 +9,10 @@ namespace backend.Entity
 {
     public class Message
     {
+        public Message()
+        {
+
+        }
 
         [Key]
         [Required]

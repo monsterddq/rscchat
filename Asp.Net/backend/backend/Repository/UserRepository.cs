@@ -31,37 +31,38 @@ namespace backend.Repository
         public override List<User> FindBy(Expression<Func<User, bool>> predicate)
         {
             return db.Users
-                .Where(predicate)
                 .Include(w => w.UserRoom)
+                    .ThenInclude(e => e.Room)
+                .Where(predicate)
                 .ToList();
         }
 
         public override List<User> GetAll()
         {
             return db.Users
-                .OrderBy(w => w.UserName)
                 .Include(w => w.UserRoom)
+                .OrderBy(w => w.UserName)
                 .ToList();
         }
 
         public override List<User> LimitedWithFindBy(Expression<Func<User, bool>> predicate, int start, int limit)
         {
             return db.Users
+                .Include(w => w.UserRoom)
                 .Where(predicate)
                 .Skip(start * limit)
                 .Take(limit)
                 .OrderBy(w => w.UserName)
-                .Include(w => w.UserRoom)
                 .ToList();
         }
 
         public override List<User> LimitedWithGetAll(int start, int limit)
         {
             return db.Users
+                .Include(w => w.UserRoom)
                 .Skip(start * limit)
                 .Take(limit)
                 .OrderBy(w => w.UserName)
-                .Include(w => w.UserRoom)
                 .ToList();
         }
 

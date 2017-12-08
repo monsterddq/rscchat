@@ -36,7 +36,10 @@ namespace backend.Controllers
             };
             try
             {
-                return roomService.AddRoomByUser(room, user);
+                if (roomService.HasRoomByUserAndType(user.UserName, room.Type))
+                    return roomService.FetchByUserNameAndType(user.UserName, room.Type);
+                else
+                    return roomService.AddRoomByUser(room, user);
             }
             catch (Exception e)
             {

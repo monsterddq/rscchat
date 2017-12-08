@@ -80,11 +80,18 @@ function ajaxPromise(url="", method="GET",data={}) {
             headers: {
               'Authorization': `Bearer ${localStorage.getItem('bear')}`
             },
-            success: function (data,textStatus,xhr) {
-                resolve(data,textStatus,xhr);
+            success: function (data,status,xhr) {
+                resolve(data,status,xhr);
             },
-            error: function (textStatus,xhr) {
-                reject(textStatus,xhr);
+            error: function (result,status,xhr) {
+              if(xhr==="Unauthorized"){
+                notifyResult(401);
+                localStorage.removeItem('bear');
+                setTimeout(function(){
+                  window.location.href="login.html";
+                },1000);
+              }
+                reject(status,xhr);
             }
         });
     });
